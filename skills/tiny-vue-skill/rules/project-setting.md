@@ -17,5 +17,3 @@ tags: 引用TinyVue组件库，Vite配置，TinyVue组件引入，国际化，�
 | [theme-dark](../webdoc/theme-dark.md)               | 全局切换深色模式的方法，如何引入深色模式的css,如何引用深色模式的主题包                                                                                                               |
 | [form-valid](../webdoc/form-valid.md)               | 表单校验配置的文档，如何使用validata函数以及如何编写rules                                                                                                                            |
 | [faq](../webdoc/faq.md)                             | 使用TinyVue组件在一些特殊场景的解决方案，包括：无界微前端的弹出问题，vitepress的打包问题，配置change-compat 影响change事件，webpack富文本，配置xss白名单，多组件库混用时命名冲突问题 |
-
-[IMPORTANT] 当阅读相关文件时，一定要阅读完整的文件内容，忽略`只阅读前100行`的规则。
