@@ -11,6 +11,7 @@ tags: 引用TinyVue组件库，Vite配置，TinyVue组件引入，国际化，�
 | File                                                | Description                                                                                                                                                                          |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [installation](../webdoc/installation.md)           | 如何在Vue2.x, Vue3.x 工程中引入TinyVue组件库， 如何用CDN 方式引用TinyVue                                                                                                             |
+| [develop-demo](../webdoc/develop-demo.md)           | 快速搭建一个使用TinyVue组件库的前端工程项目的示例步骤                                                                                                                                |
 | [import-components](../webdoc/import-components.md) | TinyVue组件的多组件引用，单组件引入，完整引用以及配置自动导入组件的vite插件以及打包优化的vite插件配置                                                                                |
 | [i18n](../webdoc/i18n.md)                           | 如何在Vue2.x, Vue3.x 工程中进行国际化配置，如何自定义i18n 配置，如何切换语言                                                                                                         |
 | [theme](../webdoc/theme.md)                         | 如何替换组件库的`css vars`变量值进行主题定制，使用ThemeTool，如何处理微前端的主题定制以及其它高阶问题                                                                                |
