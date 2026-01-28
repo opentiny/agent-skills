@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: '10'
       # 1、检出当前仓库
       - name: Chheckout current repo
         uses: actions/checkout@v4
@@ -43,6 +47,10 @@ jobs:
           cp -r tinyvue-repo/examples/sites/demos/pc/app/. current-repo/skills/tiny-vue-skill/demos
           # 复制apis
           cp -r tinyvue-repo/examples/sites/demos/pc/webdoc/. current-repo/skills/tiny-vue-skill/webdoc
+          # 执行后处理脚本
+          cd current-repo/scripts
+          pnpm i 
+          pnpm tiny-vue-skill-post-process
       # 4、提交代码
       - name: Commit
         run: |
