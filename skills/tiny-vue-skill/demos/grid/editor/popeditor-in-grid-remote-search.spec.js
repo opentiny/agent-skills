@@ -1,14 +1,1 @@
-import { test, expect } from '@playwright/test'
-
-test('Popeditor 弹窗编辑，配置远程搜索', async ({ page }) => {
-  page.on('pageerror', (exception) => expect(exception).toBeNull())
-  await page.goto('grid-editor#editor-popeditor-in-grid-remote-search')
-  await page.getByText('GFD 科技 YX 公司').first().click()
-  await page
-    .getByRole('row', {
-      name: '1 2014-04-30 00:56:00 800 公司技术和研发实力雄厚，是国家 863 项目的参与者，并被政府认定为“高新技术企业”。'
-    })
-    .getByRole('textbox')
-    .click()
-  await expect(page.getByText('所有数据列表')).toBeVisible()
-})
+import{test,expect}from'@playwright/test';test('Popeditor 弹窗编辑\uFF0C配置远程搜索',async({page})=>{page.on('pageerror',exception=>expect(exception).toBeNull());await page.goto('grid-editor#editor-popeditor-in-grid-remote-search');await page.getByText('GFD 科技 YX 公司').first().click();await page.getByRole('row',{name:'1 2014-04-30 00:56:00 800 公司技术和研发实力雄厚\uFF0C是国家 863 项目的参与者\uFF0C并被政府认定为\u201C高新技术企业\u201D\u3002'}).getByRole('textbox').click();await expect(page.getByText('所有数据列表')).toBeVisible();});

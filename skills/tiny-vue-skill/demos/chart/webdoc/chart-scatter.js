@@ -1,35 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'scatter-base',
-      'name': { 'zh-CN': '数值轴', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['scatter/base.vue']
-    },
-    {
-      'demoId': 'scatter-demo2',
-      'name': {
-        'zh-CN': '类目轴',
-        'en-US': 'Category Axis'
-      },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['scatter/demo2.vue']
-    },
-    {
-      'demoId': 'scatter-demo3',
-      'name': { 'zh-CN': '自定义配色', 'en-US': 'Custom Coloring' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['scatter/demo3.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-scatter', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'scatter-base','name':{'zh-CN':'数值轴','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['scatter/base.vue']},{'demoId':'scatter-demo2','name':{'zh-CN':'类目轴','en-US':'Category Axis'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['scatter/demo2.vue']},{'demoId':'scatter-demo3','name':{'zh-CN':'自定义配色','en-US':'Custom Coloring'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['scatter/demo3.vue']}],apis:[{'name':'chart-scatter','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   axisVisible: boolean // 是否显示坐标轴
   cursor: string // 鼠标悬浮时在图形元素上时鼠标的样式
@@ -52,7 +21,4 @@ interface IChartSettings {
   xAxisType: string //  x 轴类型，可选值：category , value , time , log 
   yAxisName: string //  y 轴标题
 }
-`
-    }
-  ]
-}
+`}]};

@@ -1,68 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'line-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/base.vue']
-    },
-    {
-      'demoId': 'line-demo2',
-      'name': { 'zh-CN': '曲线图', 'en-US': 'Curve graph' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo2.vue']
-    },
-    {
-      'demoId': 'line-demo3',
-      'name': { 'zh-CN': '阶梯线图', 'en-US': 'ladder diagram' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo3.vue']
-    },
-    {
-      'demoId': 'line-demo4',
-      'name': { 'zh-CN': '数据不连续', 'en-US': 'The data is not continuous.' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo4.vue']
-    },
-    {
-      'demoId': 'line-demo5',
-      'name': { 'zh-CN': 'x 轴文本旋转', 'en-US': 'X-axis text rotation' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo5.vue']
-    },
-    {
-      'demoId': 'line-demo6',
-      'name': { 'zh-CN': 'y 轴最大最小值和数值间距', 'en-US': 'Maximum, minumum, and interval of values on the y axis' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo6.vue']
-    },
-    {
-      'demoId': 'line-demo7',
-      'name': { 'zh-CN': '阈值线', 'en-US': 'Threshold Line' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo7.vue']
-    },
-    {
-      'demoId': 'line-demo8',
-      'name': { 'zh-CN': '区域缩放轴', 'en-US': 'Region Zoom Axis' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo8.vue']
-    },
-    {
-      'demoId': 'line-demo9',
-      'name': { 'zh-CN': '折线面积图', 'en-US': 'Line area chart' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['line/demo9.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-line', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'line-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/base.vue']},{'demoId':'line-demo2','name':{'zh-CN':'曲线图','en-US':'Curve graph'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo2.vue']},{'demoId':'line-demo3','name':{'zh-CN':'阶梯线图','en-US':'ladder diagram'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo3.vue']},{'demoId':'line-demo4','name':{'zh-CN':'数据不连续','en-US':'The data is not continuous.'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo4.vue']},{'demoId':'line-demo5','name':{'zh-CN':'x 轴文本旋转','en-US':'X-axis text rotation'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo5.vue']},{'demoId':'line-demo6','name':{'zh-CN':'y 轴最大最小值和数值间距','en-US':'Maximum, minumum, and interval of values on the y axis'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo6.vue']},{'demoId':'line-demo7','name':{'zh-CN':'阈值线','en-US':'Threshold Line'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo7.vue']},{'demoId':'line-demo8','name':{'zh-CN':'区域缩放轴','en-US':'Region Zoom Axis'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo8.vue']},{'demoId':'line-demo9','name':{'zh-CN':'折线面积图','en-US':'Line area chart'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['line/demo9.vue']}],apis:[{'name':'chart-line','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   area: boolean // 是否展示为面积图，默认为 false 
   axisSite: object // 指标所在的轴，默认不在 right 轴的指标都在 left 轴
@@ -85,7 +21,4 @@ interface IChartSettings {
 > 备注 2. stack 用于将两数据堆叠起来，例如实例中所示 stack: { '销售额': ['成本', '利润'] } 即将'成本', '利润'相应的数据堆叠在一起。
 
 > 备注 3. min 和 max 的值可以直接设置为数字，例如：[100, 300]；也可以设置为 ['dataMin', 'dataMin'], ['dataMax', 'dataMax']，此时表示使用该坐标轴上的最小值或最大值为最小或最大刻度。
-`
-    }
-  ]
-}
+`}]};

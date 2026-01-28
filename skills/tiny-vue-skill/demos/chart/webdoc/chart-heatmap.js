@@ -1,32 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'heatmap-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['heatmap/base.vue']
-    },
-    {
-      'demoId': 'heatmap-demo2',
-      'name': { 'zh-CN': '日历热力图', 'en-US': 'Calendar Heat Map' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['heatmap/demo2.vue']
-    },
-    {
-      'demoId': 'heatmap-demo3',
-      'name': { 'zh-CN': '日历热力图自定义配色', 'en-US': 'Calendar Heat Map Custom Color' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['heatmap/demo3.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-heatmap', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'heatmap-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['heatmap/base.vue']},{'demoId':'heatmap-demo2','name':{'zh-CN':'日历热力图','en-US':'Calendar Heat Map'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['heatmap/demo2.vue']},{'demoId':'heatmap-demo3','name':{'zh-CN':'日历热力图自定义配色','en-US':'Calendar Heat Map Custom Color'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['heatmap/demo3.vue']}],apis:[{'name':'chart-heatmap','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   beforeRegisterMap: () => void // 地图数据注册前执行的函数，参数为地图数据，需返回地图数据
   beforeRegisterMapOnce: () => void // 地图数据注册前执行的函数 (仅执行一次)，参数为地图数据，需返回地图数据
@@ -52,7 +24,4 @@ interface IChartSettings {
   yAxisList: array //  y 轴数据，默认取数据中的数据中的第二维度的数据
   yAxisName: string //  y 轴名称
 }
-`
-    }
-  ]
-}
+`}]};

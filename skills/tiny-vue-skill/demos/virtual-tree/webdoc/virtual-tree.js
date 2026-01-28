@@ -1,20 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  show: true,
-  cloud: false,
-  meta: {
-    stable: '3.19.0'
-  },
-  demos: [
-    {
-      demoId: 'basic-usage',
-      name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
-      },
-      desc: {
-        'zh-CN': `
+export default{column:'2',owner:'',show:true,cloud:false,meta:{stable:'3.19.0'},demos:[{demoId:'basic-usage',name:{'zh-CN':'基本用法','en-US':'Basic Usage'},desc:{'zh-CN':`
         提供了 <code>VirtualTree</code> 组件以支持树虚拟滚动，其内部封装了 <code>Tree</code> 组件。<br>
         通过属性 <code>height</code> 设置滚动容器的高度，通过属性 <code>row-height</code> 设置树的每一项高度。<br>
         通过 <code>width</code> 设置滚动容器的宽度，通过 <code>scrollbar-size</code> 设置滚动条的尺寸。<br>
@@ -31,39 +15,4 @@ export default {
             <li>6. 组件没有监控其它属性的改变，可以在改变后手动调用 <code>refresh</code> 刷新。同样可以在改变前调用 <code>keepExpandStatus</code> 或 <code>keepScrollTop</code> 保持上次的展开状态和滚动位置。</li>
           </ul>
         </div>
-        `,
-        'en-US':
-          '<p>Note that the UserLink component requests mock data, which cannot be queried by other users. Use real services during development. </p>\n'
-      },
-      codeFiles: ['basic-usage.vue']
-    }
-  ],
-  features: [
-    {
-      id: 'basic',
-      name: '基本用法',
-      support: {
-        value: true
-      },
-      description: '支持树虚拟滚动，可设置滚动容器高度、行高、宽度等。',
-      cloud: {
-        value: false
-      },
-      apis: ['height', 'row-height', 'width', 'scrollbar-size'],
-      demos: ['basic-usage']
-    },
-    {
-      id: 'tree',
-      name: '树配置',
-      support: {
-        value: true
-      },
-      description: '通过 tree-op 配置树组件属性，支持展开状态保持、滚动位置保持等。',
-      cloud: {
-        value: false
-      },
-      apis: ['tree-op', 'keepExpandStatus', 'keepScrollTop'],
-      demos: ['basic-usage']
-    }
-  ]
-}
+        `,'en-US':'<p>Note that the UserLink component requests mock data, which cannot be queried by other users. Use real services during development. </p>\n'},codeFiles:['basic-usage.vue']}],features:[{id:'basic',name:'基本用法',support:{value:true},description:'支持树虚拟滚动\uFF0C可设置滚动容器高度\u3001行高\u3001宽度等\u3002',cloud:{value:false},apis:['height','row-height','width','scrollbar-size'],demos:['basic-usage']},{id:'tree',name:'树配置',support:{value:true},description:'通过 tree-op 配置树组件属性\uFF0C支持展开状态保持\u3001滚动位置保持等\u3002',cloud:{value:false},apis:['tree-op','keepExpandStatus','keepScrollTop'],demos:['basic-usage']}]};

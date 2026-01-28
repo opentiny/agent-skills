@@ -1,62 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'histogram-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/base.vue']
-    },
-    {
-      'demoId': 'histogram-demo2',
-      'name': { 'zh-CN': '位置与 padding', 'en-US': ' Position and padding' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo2.vue']
-    },
-    {
-      'demoId': 'histogram-demo3',
-      'name': { 'zh-CN': '数据最小高度', 'en-US': 'Minimum data height' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo3.vue']
-    },
-    {
-      'demoId': 'histogram-demo4',
-      'name': { 'zh-CN': '鼠标悬浮提示框', 'en-US': 'Mouse hovering prompt box' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo4.vue']
-    },
-    {
-      'demoId': 'histogram-demo5',
-      'name': { 'zh-CN': '堆叠柱状图', 'en-US': 'Stacked Bar Chart' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo5.vue']
-    },
-    {
-      'demoId': 'histogram-demo6',
-      'name': { 'zh-CN': '区域缩放轴', 'en-US': 'Region Zoom Axis' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo6.vue']
-    },
-    {
-      'demoId': 'histogram-demo7',
-      'name': { 'zh-CN': '数值显示配置详解', 'en-US': 'Value Display Configuration Details' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo7.vue']
-    },
-    {
-      'demoId': 'histogram-demo8',
-      'name': { 'zh-CN': 'x 轴文本旋转', 'en-US': 'X-axis text rotation' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['histogram/demo8.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-histogram', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'histogram-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/base.vue']},{'demoId':'histogram-demo2','name':{'zh-CN':'位置与 padding','en-US':' Position and padding'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo2.vue']},{'demoId':'histogram-demo3','name':{'zh-CN':'数据最小高度','en-US':'Minimum data height'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo3.vue']},{'demoId':'histogram-demo4','name':{'zh-CN':'鼠标悬浮提示框','en-US':'Mouse hovering prompt box'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo4.vue']},{'demoId':'histogram-demo5','name':{'zh-CN':'堆叠柱状图','en-US':'Stacked Bar Chart'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo5.vue']},{'demoId':'histogram-demo6','name':{'zh-CN':'区域缩放轴','en-US':'Region Zoom Axis'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo6.vue']},{'demoId':'histogram-demo7','name':{'zh-CN':'数值显示配置详解','en-US':'Value Display Configuration Details'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo7.vue']},{'demoId':'histogram-demo8','name':{'zh-CN':'x 轴文本旋转','en-US':'X-axis text rotation'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['histogram/demo8.vue']}],apis:[{'name':'chart-histogram','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   axisSite: object // 指标所在的轴，默认不在 right 轴的指标都在 left 轴
   dataOrder: boolean | object // 设置数据排序方式，默认为 false 
@@ -89,7 +31,4 @@ interface IChartSettings {
 > 备注 5. 有时我们需要将折线图与柱状图展示在同一个图上，利用 showLine 属性可以设置需要展示为折线图的指标，其他的指标则使用柱状图展示。
 
 > 备注 6. 为了优化连续的数值型横轴显示多指标的时候样式，在此情况下默认设置 opacity 为 0.5。
-`
-    }
-  ]
-}
+`}]};

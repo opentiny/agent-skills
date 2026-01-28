@@ -1,56 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'bar-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/base.vue']
-    },
-    {
-      'demoId': 'bar-demo2',
-      'name': { 'zh-CN': '堆叠条形图', 'en-US': ' Stacked Bar Chart' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/demo2.vue']
-    },
-    {
-      'demoId': 'bar-demo3',
-      'name': { 'zh-CN': '数值显示', 'en-US': 'Numerical display' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/demo3.vue']
-    },
-    {
-      'demoId': 'bar-demo4',
-      'name': { 'zh-CN': '堆叠条形图数值显示', 'en-US': 'Stack Bar Numeric Display' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/demo4.vue']
-    },
-    {
-      'demoId': 'bar-demo5',
-      'name': { 'zh-CN': '无 x 轴', 'en-US': 'No x-axis' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/demo5.vue']
-    },
-    {
-      'demoId': 'bar-demo6',
-      'name': { 'zh-CN': '阈值线', 'en-US': 'Threshold Line' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/demo6.vue']
-    },
-    {
-      'demoId': 'bar-demo7',
-      'name': { 'zh-CN': '数值均为正数双向条形图', 'en-US': 'Two-way bar chart with all positive data' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['bar/demo7.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-bar', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'bar-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/base.vue']},{'demoId':'bar-demo2','name':{'zh-CN':'堆叠条形图','en-US':' Stacked Bar Chart'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/demo2.vue']},{'demoId':'bar-demo3','name':{'zh-CN':'数值显示','en-US':'Numerical display'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/demo3.vue']},{'demoId':'bar-demo4','name':{'zh-CN':'堆叠条形图数值显示','en-US':'Stack Bar Numeric Display'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/demo4.vue']},{'demoId':'bar-demo5','name':{'zh-CN':'无 x 轴','en-US':'No x-axis'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/demo5.vue']},{'demoId':'bar-demo6','name':{'zh-CN':'阈值线','en-US':'Threshold Line'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/demo6.vue']},{'demoId':'bar-demo7','name':{'zh-CN':'数值均为正数双向条形图','en-US':'Two-way bar chart with all positive data'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['bar/demo7.vue']}],apis:[{'name':'chart-bar','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   axisSite: object // 指标所在的轴，默认不在 top 轴的指标都在 bottom 轴
   dataOrder: boolean | object // 设置数据排序方式，默认为 false 
@@ -80,7 +28,4 @@ interface IChartSettings {
 > 备注 4. min 和 max 的值可以直接设置为数字，例如：[100, 300]；也可以设置为 ['dataMin', 'dataMin'], ['dataMax', 'dataMax']，此时表示使用该坐标轴上的最小值或最大值为最小或最大刻度。
 
 > 备注 5. 为了优化连续的数值型横轴显示多指标的时候样式，在此情况下默认设置 opacity 为 0.5。
-`
-    }
-  ]
-}
+`}]};

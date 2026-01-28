@@ -1,20 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'liquidfill-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['liquidfill/base.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-liquidfill', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'liquidfill-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['liquidfill/base.vue']}],apis:[{'name':'chart-liquidfill','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   dataType: string // 数据类型，默认为 percent ,也可设置为 normal 
   digit: number // 设置数据类型为 percent 时保留的位数，默认为 2
@@ -23,12 +7,7 @@ interface IChartSettings {
   seriesMap: ISeriesMap | array[ISeriesMap] // 附加到 series 中的设置，默认为{}，可以设置单个水球图，也可以一次设置多个。数组形式配置见“多个水球图”示例，对象形式配置见其他示例。
   wave: array[number] | array[array[number]] // 设置水球图分层，默认为 [],数组中的值不大于 row 中对应的维度值，且需要由大到小排列。可设置为 [0.3,0.2,0.1] 的形式，表示每个水球图都显示 4 层，且最下面三层的值分别为 0.1，0.2，0.3；也可设置为 [[0.2,0.1],[0.1],[]] 的形式，当有多个水球图时，wave 中的每一项对应一个水球图的分层设置，如果 wave.length < rows.length ,则剩余的水球图的分层设置以 wave 数组中最后一项为准。比如 rows =[{ val:0.1},{ val:0.2},{ val:0.3},{ val:0.4}],而 wave =[[0.2,0.1],[0.2]]，此时 rows 中后三项的分层设置均为 [0.2]
 }
-`
-    },
-    {
-      name: 'ISeriesMap',
-      type: 'interface',
-      code: `
+`},{name:'ISeriesMap',type:'interface',code:`
 interface ISeriesMap {
   amplitude: string // 水波的起伏程度，用百分数表示。数值越大，起伏程度越大，如’10%’
   animationDuration: number // 水波初始动画所需要的时间，水波初始动画所需要的时间
@@ -49,54 +28,29 @@ interface ISeriesMap {
   waveAnimation: boolean // 水波是否滚动，为 true 时水波滚动，反之不滚动。默认为 true 
   waveLength: string // 水波的长度，相对于水球的直径。当为’50%’时，水球图中一条数据上会出现两个水波；为 33% 时，会出现三个水波。以此类推。
 }
-`
-    },
-    {
-      name: 'IOutline',
-      type: 'interface',
-      code: `
+`},{name:'IOutline',type:'interface',code:`
 interface IOutline {
   borderDistance: number // ，水球图外边框和水球图核心内容的距离，类似于元素的内边距
   itemStyle: object // 水球图外边框的样式，主要配置项有 color : string (边框和核心内容之间的背景颜色，也就是 borderDistance 那部分的背景颜色), borderColor : string (外边框的颜色)，borderWidth : number (外边框的宽度)，shadowBlur : number (外边阴影的模糊距离)，shadowColor: string (边框阴影的颜色)
   show: boolean // 是否显示
 }
-`
-    },
-    {
-      name: 'IBackgroundStyle',
-      type: 'interface',
-      code: `
+`},{name:'IBackgroundStyle',type:'interface',code:`
 interface IBackgroundStyle {
   borderColor: string // 背景边框的颜色
   borderWidth: number // 背景的边框
   color: string // 水球图的背景颜色
 }
-`
-    },
-    {
-      name: 'IItemStyle',
-      type: 'interface',
-      code: `
+`},{name:'IItemStyle',type:'interface',code:`
 interface IItemStyle {
   opacity: number // 波浪的透明度
   shadowBlur: number // 波浪阴影的模糊距离
   shadowColor: string // 波浪阴影的颜色
 }
-`
-    },
-    {
-      name: 'IEmphasis',
-      type: 'interface',
-      code: `
+`},{name:'IEmphasis',type:'interface',code:`
 interface IEmphasis {
   itemStyle: object // 鼠标悬浮时波浪的样式，opacity: number (鼠标悬浮时波浪的透明度)
 }
-`
-    },
-    {
-      name: 'ILabel',
-      type: 'interface',
-      code: `
+`},{name:'ILabel',type:'interface',code:`
 interface ILabel {
   align: string // 文本的位置，可选值有' left ',' center ',' right '
   baseline: string // 文本垂直方向上对齐方向，可选值有' top ',' middle ',' bottom '
@@ -108,7 +62,4 @@ interface ILabel {
   show: boolean // 是否显示，默认显示
   position: string | array[string] // 文本的位置，有 inside , left , right , top , bottom 可选，也可设置为 [’10%’,’20%’] 形式表示水平和垂直方向的位置
 }
-`
-    }
-  ]
-}
+`}]};

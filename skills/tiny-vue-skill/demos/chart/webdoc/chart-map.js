@@ -1,20 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'map-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['map/base.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-map', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'map-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['map/base.vue']}],apis:[{'name':'chart-map','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   aspectScale: number // 用于 scale 地图的长宽比，默认为 0.75
   beforeRegisterMap: () => void // 地图数据注册前执行的函数，参数为地图数据，需返回地图数据
@@ -41,7 +25,4 @@ interface IChartSettings {
 }
 
 > 备注：属性中的 position 默认为'china',可设置的类型有'china'、'china-cities'、'china-contour'、'world'、'province/beijing'、'province/shanghai'等，省份的 position 如例子中所示需要在前面加'province/'
-`
-    }
-  ]
-}
+`}]};

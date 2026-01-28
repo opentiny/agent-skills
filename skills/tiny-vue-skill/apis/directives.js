@@ -1,3 +1,1 @@
-export default {
-  apis: []
-}
+export default{apis:[]};

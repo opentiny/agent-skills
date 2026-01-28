@@ -1,253 +1,4 @@
-export default {
-  mode: ['pc'],
-  apis: [
-    {
-      name: 'chart-line',
-      type: 'component',
-      options: [
-        {
-          name: 'theme',
-          type: 'string',
-          defaultValue: 'cloud-light',
-          typeAnchorName: 'Theme',
-          desc: {
-            'zh-CN': '图表主题',
-            'en-US': 'Chart theme'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'color',
-          type: 'array',
-          defaultValue: '-',
-          typeAnchorName: 'Color',
-          desc: {
-            'zh-CN': '颜色',
-            'en-US': 'Color'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'padding',
-          type: 'array',
-          defaultValue: '[50,20,50,20]',
-          typeAnchorName: 'Padding',
-          desc: {
-            'zh-CN': '图表内边距值',
-            'en-US': 'Margin values within the chart'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'legend',
-          type: 'object',
-          defaultValue: '-',
-          typeAnchorName: 'Legend',
-          desc: {
-            'zh-CN': '图例配置, 默认显示',
-            'en-US': 'Legend configuration, default display'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'smooth',
-          type: 'boolean',
-          defaultValue: 'false',
-          typeAnchorName: 'smooth',
-          desc: {
-            'zh-CN': '曲线折线图',
-            'en-US': 'Curve and Line Chart'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'silent',
-          type: 'boolean',
-          defaultValue: 'false',
-          typeAnchorName: 'silent',
-          desc: {
-            'zh-CN': '是否关闭hover动效',
-            'en-US': 'Turn off or not turn off the hover motion effect'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'data',
-          type: 'array',
-          defaultValue: '-',
-          typeAnchorName: 'data',
-          desc: {
-            'zh-CN': '图表数据(必填)',
-            'en-US': 'Chart data (required)'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'itemStyle',
-          type: 'object',
-          defaultValue: '-',
-          typeAnchorName: 'ItemStyle',
-          desc: {
-            'zh-CN': '图表数据点文本样式',
-            'en-US': 'Chart data point text style'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'step',
-          type: 'boolean',
-          typeAnchorName: 'step',
-          defaultValue: 'false',
-          desc: {
-            'zh-CN': '折线图是否更改为阶梯线',
-            'en-US': 'Should the line chart be changed to a ladder line'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'predict',
-          type: 'string',
-          typeAnchorName: 'predict',
-          defaultValue: '-',
-          desc: {
-            'zh-CN': '折线是否更改为预测线的数据名',
-            'en-US': 'Is the line changed to the data name of the predicted line'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'tooltip',
-          type: 'object',
-          defaultValue: '默认显示',
-          typeAnchorName: 'Tooltip',
-          desc: {
-            'zh-CN': '悬浮提示框内容配置',
-            'en-US': 'Content configuration of floating prompt box'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'xAxis',
-          type: 'string | object',
-          defaultValue: '图表数据data数据中data[0]对象的第一个key值',
-          typeAnchorName: 'XAxis',
-          desc: {
-            'zh-CN': '配置x轴',
-            'en-US': 'Configure x-axis'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'yAxis',
-          type: 'string | object',
-          defaultValue: '默认显示',
-          typeAnchorName: 'YAxis',
-          desc: {
-            'zh-CN': '配置y轴',
-            'en-US': 'Configure y-axis'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'dataZoom',
-          type: 'object',
-          defaultValue: '默认不显示',
-          typeAnchorName: 'DataZoom',
-          desc: {
-            'zh-CN': '区域缩放轴配置',
-            'en-US': 'Regional scaling axis configuration'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'markline',
-          type: 'object',
-          typeAnchorName: 'Markline',
-          defaultValue: '-',
-          desc: {
-            'zh-CN': '阈值线配置',
-            'en-US': 'Threshold line configuration'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
-          name: 'markPoint',
-          type: 'object',
-          typeAnchorName: 'MarkPoint',
-          defaultValue: '{max:false, min:false}',
-          desc: {
-            'zh-CN': '峰值标记',
-            'en-US': 'Peak marking'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        }
-      ],
-
-      events: [
-        {
-          name: 'ready',
-          type: '()=>void',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '图表渲染完成后触发，每次渲染都会触发一次',
-            'en-US': 'Triggered after the completion of chart rendering, it will be triggered once every rendering'
-          },
-          mode: ['pc', 'mobile', 'mobile-first'],
-          pcDemo: '',
-          mfDemo: ''
-        },
-        {
-          name: 'ready-once',
-          type: '()=>void',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '图表渲染完成后触发，只会在首次渲染完成后触发',
-            'en-US':
-              'Triggered after the completion of chart rendering, it will only be triggered after the first rendering is completed'
-          },
-          mode: ['pc', 'mobile', 'mobile-first'],
-          pcDemo: '',
-          mfDemo: ''
-        }
-      ],
-      methods: [],
-      slots: [
-        {
-          name: 'default',
-          type: '',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '组件默认插槽',
-            'en-US': 'Component Default Slot'
-          },
-          mode: ['pc', 'mobile-first'],
-          pcDemo: '',
-          mfDemo: ''
-        }
-      ]
-    }
-  ],
-  types: [
-    {
-      name: 'Theme',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
+export default{mode:['pc'],apis:[{name:'chart-line',type:'component',options:[{name:'theme',type:'string',defaultValue:'cloud-light',typeAnchorName:'Theme',desc:{'zh-CN':'图表主题'},mode:['pc'],pcDemo:''},{name:'color',type:'array',defaultValue:'-',typeAnchorName:'Color',desc:{'zh-CN':'颜色'},mode:['pc'],pcDemo:''},{name:'padding',type:'array',defaultValue:'[50,20,50,20]',typeAnchorName:'Padding',desc:{'zh-CN':'图表内边距值'},mode:['pc'],pcDemo:''},{name:'legend',type:'object',defaultValue:'-',typeAnchorName:'Legend',desc:{'zh-CN':'图例配置, 默认显示'},mode:['pc'],pcDemo:''},{name:'smooth',type:'boolean',defaultValue:'false',typeAnchorName:'smooth',desc:{'zh-CN':'曲线折线图'},mode:['pc'],pcDemo:''},{name:'silent',type:'boolean',defaultValue:'false',typeAnchorName:'silent',desc:{'zh-CN':'是否关闭hover动效'},mode:['pc'],pcDemo:''},{name:'data',type:'array',defaultValue:'-',typeAnchorName:'data',desc:{'zh-CN':'图表数据(必填)'},mode:['pc'],pcDemo:''},{name:'itemStyle',type:'object',defaultValue:'-',typeAnchorName:'ItemStyle',desc:{'zh-CN':'图表数据点文本样式'},mode:['pc'],pcDemo:''},{name:'step',type:'boolean',typeAnchorName:'step',defaultValue:'false',desc:{'zh-CN':'折线图是否更改为阶梯线'},mode:['pc'],pcDemo:''},{name:'predict',type:'string',typeAnchorName:'predict',defaultValue:'-',desc:{'zh-CN':'折线是否更改为预测线的数据名'},mode:['pc'],pcDemo:''},{name:'tooltip',type:'object',defaultValue:'默认显示',typeAnchorName:'Tooltip',desc:{'zh-CN':'悬浮提示框内容配置'},mode:['pc'],pcDemo:''},{name:'xAxis',type:'string | object',defaultValue:'图表数据data数据中data[0]对象的第一个key值',typeAnchorName:'XAxis',desc:{'zh-CN':'配置x轴'},mode:['pc'],pcDemo:''},{name:'yAxis',type:'string | object',defaultValue:'默认显示',typeAnchorName:'YAxis',desc:{'zh-CN':'配置y轴'},mode:['pc'],pcDemo:''},{name:'dataZoom',type:'object',defaultValue:'默认不显示',typeAnchorName:'DataZoom',desc:{'zh-CN':'区域缩放轴配置'},mode:['pc'],pcDemo:''},{name:'markline',type:'object',typeAnchorName:'Markline',defaultValue:'-',desc:{'zh-CN':'阈值线配置'},mode:['pc'],pcDemo:''},{name:'markPoint',type:'object',typeAnchorName:'MarkPoint',defaultValue:'{max:false, min:false}',desc:{'zh-CN':'峰值标记'},mode:['pc'],pcDemo:''}],events:[{name:'ready',type:'()=>void',defaultValue:'',desc:{'zh-CN':'图表渲染完成后触发\uFF0C每次渲染都会触发一次'},mode:['pc','mobile','mobile-first'],pcDemo:'',mfDemo:''},{name:'ready-once',type:'()=>void',defaultValue:'',desc:{'zh-CN':'图表渲染完成后触发\uFF0C只会在首次渲染完成后触发'},mode:['pc','mobile','mobile-first'],pcDemo:'',mfDemo:''}],methods:[],slots:[{name:'default',type:'',defaultValue:'',desc:{'zh-CN':'组件默认插槽'},mode:['pc','mobile-first'],pcDemo:'',mfDemo:''}]}],types:[{name:'Theme',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
 <p data-v-md-line="3">如<code>theme='light'</code>时，color 取[ <span style="background:#6D8FF0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#6D8FF0’ ，<span style="background:#00A874;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#00A874’， <span style="background:#BD72F0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#BD72F0’ ，<span style="background:#54BCCE;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#54BCCE’ ，<span style="background:#FDC000;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FDC000’ ，<span style="background:#9185F0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#9185F0’，<span style="background:#00A2B5;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#00A2B5’ ]<br>
 如<code>theme='dark'</code>时，color 取[ <span style="background:#1F55B5;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#1F55B5’ ，<span style="background:#278661;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#278661’ ，<span style="background:#8A21BC;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#8A21BC’ ，<span style="background:#26616B;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#26616B’ ，<span style="background:#B98C1D;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#B98C1D’ ，<span style="background:#745EF7;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#745EF7’，<span style="background:#2A8290;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2A8290’ ]<br>
 如<code>theme='cloud-light'</code>时，color 取[ <span style="background:#1476FF;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#1476FF’ ，<span style="background:#0BB8B2;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#0BB8B2’ ，<span style="background:#6E51E0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#6E51E0’ ，<span style="background:#5CB300;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#5CB300’ ，<span style="background:#FFB700;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FFB700’ ，<span style="background:#33BCF2;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#33BCF2’ ，<span style="background:#BA53E6;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#BA53E6’ ，<span style="background:#F24998;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#F24998’ ]<br>
@@ -255,12 +6,7 @@ export default {
 如<code>theme='hdesign-light'</code>时，color 取[ color 取[ <span style="background:#2070F3;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2070F3’ ，<span style="background:#87C859;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#87C859’ ，<span style="background:#715AFB;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#715AFB’ ，<span style="background:#F69E39;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#F69E39’ ，<span style="background:#2CB8C9;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2CB8C9’ ，<span style="background:#E049CE;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#E049CE’ ，<span style="background:#09AA71;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#09AA71’ ，<span style="background:#FCD72E;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FCD72E’，<span style="background:#B62BF7;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#B62BF7’，<span style="background:#ED448A;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#ED448A’，<span style="background:#0067D1;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#0067D1’]<br>
 如<code>theme='hdesign-dark'</code>时，color 取[ color 取[ <span style="background:#2070F3;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2070F3’ ，<span style="background:#62B42E;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#62B42E’ ，<span style="background:#715AFB;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#715AFB’ ，<span style="background:#F4840C;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#F4840C’ ，<span style="background:#2CB8C9;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2CB8C9’ ，<span style="background:#D41DBC;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#D41DBC’ ，<span style="background:#09AA71;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#09AA71’ ，<span style="background:#FCC800;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FCC800’，<span style="background:#B62BF7;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#B62BF7’，<span style="background:#E61866;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#E61866’，<span style="background:#0067D1;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#0067D1’]<br>
 说明：调色盘颜色列表，图表从颜色数组中依次循环取得颜色使用，如果没有设置颜色列表 ， 则会根据 <code>theme</code> 决定默认值。</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'data',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
+</div></div></div></td></tr></div>`},{name:'data',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code>data: [
   { Month: <span class="hljs-string">'Jan'</span>, Domestic: <span class="hljs-number">33</span>, Abroad: <span class="hljs-number">37</span> },
   { Month: <span class="hljs-string">'Feb'</span>, Domestic: <span class="hljs-number">27</span>, Abroad: <span class="hljs-number">39</span> },
@@ -269,12 +15,7 @@ export default {
 ];
 </code></pre>
 </div></div><p data-v-md-line="12">说明：图表数据 ， Month 为 x 轴数据 ， Domestic 、 Abroad 为 折线名称 , Month 及折线名称（key 值）可更换</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'ItemStyle',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">说明：设置折线图数据点的样式</p>
+</div></div></div></td></tr></div>`},{name:'ItemStyle',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">说明：设置折线图数据点的样式</p>
 <div data-v-md-line="3"><p class="ev_expand_title">itemStyle.symbolSize<span class="ev_expand_required">非必填</span><span class="ev_expand_defaults">有默认值</span><span class="ev_expand_type">Number</span>
 </p></div><div data-v-md-line="5"><p class="ev_expand_introduce">默认值：<code>20</code>
 </p></div><div data-v-md-line="7"><p class="ev_expand_introduce">说明：设置折线图数据点的大小
@@ -283,12 +24,7 @@ export default {
 <code>theme=light</code> ， symbolSize=<code>#ffffff</code><br>
 <code>theme=dark</code> ， symbolSize=<code>#191919</code>
 </p></div><div data-v-md-line="15"><p class="ev_expand_introduce">说明：设置折线图数据点的边框颜色
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'Markline',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
+</p></div></div></div></div></td></tr></div>`},{name:'Markline',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code>markLine:{
     top:<span class="hljs-number">38</span>,
     topLabel:<span class="hljs-string">'上阈值线'</span>,
@@ -323,12 +59,7 @@ export default {
 </p></div><div data-v-md-line="56"><p class="ev_expand_introduce">默认值：<code>insideEndTop</code>
 </p></div><div data-v-md-line="58"><p class="ev_expand_introduce">可选值：<code>insideEndTop</code>（结束位置上方） 、 <code>insideStartTop</code>（开始位置上方） 、 <code>insideEndBottom</code>（结束位置下方） 、 <code>insideStartBottom</code>（开始位置上方） 、 <code>start</code>（开始位置） 、 <code>end</code>（结束位置）
 </p></div><div data-v-md-line="60"><p class="ev_expand_introduce">说明：配置下阈值线的文本位置
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'MarkPoint',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>markPint:{max:false,min:false}</code></p>
+</p></div></div></div></div></td></tr></div>`},{name:'MarkPoint',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>markPint:{max:false,min:false}</code></p>
 <p data-v-md-line="3">说明：折线图峰值标记的相关配置</p>
 <div data-v-md-line="5"><p class="ev_expand_title">markPoint.max<span class="ev_expand_required">非必填</span><span class="ev_expand_defaults">有默认值</span><span class="ev_expand_type">Boolean</span>
 </p></div><div data-v-md-line="7"><p class="ev_expand_introduce">默认值：<code>false</code>
@@ -336,51 +67,21 @@ export default {
 </p></div><div data-v-md-line="11"><p class="ev_expand_title">markPoint.min<span class="ev_expand_required">非必填</span><span class="ev_expand_defaults">有默认值</span><span class="ev_expand_type">Boolean</span>
 </p></div><div data-v-md-line="13"><p class="ev_expand_introduce">默认值：<code>false</code>
 </p></div><div data-v-md-line="15"><p class="ev_expand_introduce">说明：是否显示最小峰值标记
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'predict',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：<code>predict:'Feb'</code></p>
+</p></div></div></div></div></td></tr></div>`},{name:'predict',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：<code>predict:'Feb'</code></p>
 <p data-v-md-line="3">说明：折线图从哪条 x 轴数据之后开启趋势预测线</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'silent',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>false</code></p>
+</div></div></div></td></tr></div>`},{name:'silent',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>false</code></p>
 <p data-v-md-line="3">说明：是否关闭 hover 态的效果</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'smooth',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>false</code></p>
+</div></div></div></td></tr></div>`},{name:'smooth',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>false</code></p>
 <p data-v-md-line="3">说明：折线图是否开启平滑曲线</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'step',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>false</code></p>
+</div></div></div></td></tr></div>`},{name:'step',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：<code>false</code></p>
 <p data-v-md-line="3">说明：面积图是否配置阶梯线 ， 配置 <code>step:true</code> 则 <code>smooth:true</code> 失效</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'Padding',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">说明：设置图表四个方向的 <code>padding</code> 值<br>
+</div></div></div></td></tr></div>`},{name:'Padding',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">说明：设置图表四个方向的 <code>padding</code> 值<br>
 <code>padding : [top, right, bottom, left]</code><br>
 top 的值可以是 20 这样的具体像素值 ， 可以是 ‘20%’ 这样相对于容器高宽的百分比，也可以是 ‘top’ ， ‘middle’ ， ‘bottom’<br>
 left 的值可以是 20 这样的具体像素值 ， 可以是 ‘20%’ 这样相对于容器高宽的百分比，也可以是 ‘left’ ， ‘center’ ， ‘right’<br>
 right 的值可以是 20 这样的具体像素值 ， 可以是 ‘20%’ 这样相对于容器高宽的百分比<br>
 bottom 的值可以是 20 这样的具体像素值 ， 可以是 ‘20%’ 这样相对于容器高宽的百分比</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'Color',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
+</div></div></div></td></tr></div>`},{name:'Color',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
 <p data-v-md-line="3">如<code>theme='light'</code>时，color 取[ <span style="background:#6D8FF0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#6D8FF0’ ，<span style="background:#00A874;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#00A874’， <span style="background:#BD72F0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#BD72F0’ ，<span style="background:#54BCCE;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#54BCCE’ ，<span style="background:#FDC000;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FDC000’ ，<span style="background:#9185F0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#9185F0’，<span style="background:#00A2B5;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#00A2B5’ ]<br>
 如<code>theme='dark'</code>时，color 取[ <span style="background:#1F55B5;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#1F55B5’ ，<span style="background:#278661;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#278661’ ，<span style="background:#8A21BC;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#8A21BC’ ，<span style="background:#26616B;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#26616B’ ，<span style="background:#B98C1D;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#B98C1D’ ，<span style="background:#745EF7;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#745EF7’，<span style="background:#2A8290;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2A8290’ ]<br>
 如<code>theme='cloud-light'</code>时，color 取[ <span style="background:#1476FF;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#1476FF’ ，<span style="background:#0BB8B2;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#0BB8B2’ ，<span style="background:#6E51E0;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#6E51E0’ ，<span style="background:#5CB300;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#5CB300’ ，<span style="background:#FFB700;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FFB700’ ，<span style="background:#33BCF2;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#33BCF2’ ，<span style="background:#BA53E6;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#BA53E6’ ，<span style="background:#F24998;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#F24998’ ]<br>
@@ -388,12 +89,7 @@ bottom 的值可以是 20 这样的具体像素值 ， 可以是 ‘20%’ 这�
 如<code>theme='hdesign-light'</code>时，color 取[ color 取[ <span style="background:#2070F3;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2070F3’ ，<span style="background:#87C859;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#87C859’ ，<span style="background:#715AFB;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#715AFB’ ，<span style="background:#F69E39;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#F69E39’ ，<span style="background:#2CB8C9;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2CB8C9’ ，<span style="background:#E049CE;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#E049CE’ ，<span style="background:#09AA71;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#09AA71’ ，<span style="background:#FCD72E;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FCD72E’，<span style="background:#B62BF7;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#B62BF7’，<span style="background:#ED448A;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#ED448A’，<span style="background:#0067D1;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#0067D1’]<br>
 如<code>theme='hdesign-dark'</code>时，color 取[ color 取[ <span style="background:#2070F3;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2070F3’ ，<span style="background:#62B42E;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#62B42E’ ，<span style="background:#715AFB;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#715AFB’ ，<span style="background:#F4840C;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#F4840C’ ，<span style="background:#2CB8C9;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#2CB8C9’ ，<span style="background:#D41DBC;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#D41DBC’ ，<span style="background:#09AA71;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#09AA71’ ，<span style="background:#FCC800;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#FCC800’，<span style="background:#B62BF7;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#B62BF7’，<span style="background:#E61866;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#E61866’，<span style="background:#0067D1;display:inline-block;width:16px;height:16px;transform:translateY(3px)"></span> ‘#0067D1’]<br>
 说明：调色盘颜色列表，图表从颜色数组中依次循环取得颜色使用，如果没有设置颜色列表 ， 则会根据 <code>theme</code> 决定默认值。</p>
-</div></div></div></td></tr></div>`
-    },
-    {
-      name: 'Legend',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
+</div></div></div></td></tr></div>`},{name:'Legend',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-javascript extra-class"><pre class="v-md-hljs-javascript"><code><span class="hljs-attr">legend</span>: {
     <span class="hljs-attr">show</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">position</span>:{
@@ -505,12 +201,7 @@ bottom 的值可以是 20 这样的具体像素值 ， 可以是 '20%' 这样相
 }
 </code></pre>
 </div></div><div data-v-md-line="169"><p class="ev_expand_introduce">说明：图例是否显示悬浮提示框
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'Tooltip',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
+</p></div></div></div></div></td></tr></div>`},{name:'Tooltip',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code>tooltip 提示框组件：tooltip.show = <span class="hljs-literal">true</span> 默认显示
 </code></pre>
 </div></div><p data-v-md-line="7">格式：</p>
@@ -537,12 +228,7 @@ return htmlString;
 </span ></code ></pre >
 </div ></div > <p data-v-md-line="32">说明：通过回调函数的参数，自行制作一个 HTML 片段<br>
   详细参数解释见： <a target="_blank" href="https://echarts.apache.org/zh/option.html#tooltip.formatter">https://echarts.apache.org/zh/option.html#tooltip.formatter</a></p>
-</div ></div ></div ></td></tr></div>`
-    },
-    {
-      name: 'XAxis',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：图表数据<code>data</code>数组中<code>data[0]</code>对象的第一个 key 值</p>
+</div ></div ></div ></td></tr></div>`},{name:'XAxis',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：图表数据<code>data</code>数组中<code>data[0]</code>对象的第一个 key 值</p>
 <p data-v-md-line="3">格式：</p>
 <div data-v-md-line="5"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code>String类型
 xAxis:<span class="hljs-string">'Month'</span>
@@ -641,12 +327,7 @@ xAxisInterval: (index,value) =&gt; {
 </p></div><div data-v-md-line="134"><p class="ev_expand_title">xAxis.nameTextStyle<span class="ev_expand_required">非必填</span><span class="ev_expand_defaults">有默认值</span><span class="ev_expand_type">Object</span>
 </p></div><div data-v-md-line="136"><p class="ev_expand_introduce">默认值：{fontSize:12,color:'#4e4e4e'}
 </p><p class="ev_expand_introduce">说明：设置x轴文本样式
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'YAxis',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
+</p></div></div></div></div></td></tr></div>`},{name:'YAxis',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code>数组格式
 yAxis: [
     {
@@ -746,12 +427,7 @@ yAxis:
 }
 </code></pre>
 </div></div><div data-v-md-line="148"><p class="ev_expand_introduce">说明：配置y轴刻度线样式
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'DataZoom',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
+</p></div></div></div></div></td></tr></div>`},{name:'DataZoom',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">默认值：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code>dataZoom:{
     start:<span class="hljs-number">0</span>,
     end:<span class="hljs-number">100</span>,
@@ -805,12 +481,7 @@ bottom 的值可以是 20 这样的具体像素值 ， 可以是 '20%' 这样相
 </p></div><div data-v-md-line="73"><p class="ev_expand_title">dataZoom.height<span class="ev_expand_required">非必填</span><span class="ev_expand_defaults">有默认值</span><span class="ev_expand_type">Number</span>
 </p></div><div data-v-md-line="75"><p class="ev_expand_introduce">默认值：<code>24</code>
 </p></div><div data-v-md-line="77"><p class="ev_expand_introduce">说明：设置区域缩放轴的高度
-</p></div></div></div></div></td></tr></div>`
-    },
-    {
-      name: 'Event',
-      type: 'interface',
-      code: `<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
+</p></div></div></div></div></td></tr></div>`},{name:'Event',type:'interface',code:`<div class="tiny-huicharts"><tr class="tiny-grid-body__expanded-row"><td class="tiny-grid-body__expanded-column" colspan="5"><div class="tiny-grid-body__expanded-cell"><div class="v-md-editor-preview main-editor api-table" style="tab-size: 2;"><div class="github-markdown-body"><p data-v-md-line="1">格式：</p>
 <div data-v-md-line="3"><div class="v-md-pre-wrapper v-md-pre-wrapper-d extra-class"><pre class="v-md-hljs-d"><code> event:{
     series：{
       click:(parms)=&gt;{
@@ -825,7 +496,4 @@ bottom 的值可以是 20 这样的具体像素值 ， 可以是 '20%' 这样相
     }
 </code></pre>
 </div></div><p data-v-md-line="18">说明：自定义设置图表的处理事件,具体用法参考<a href="https://echarts.apache.org/zh/api.html#echartsInstance.on">https://echarts.apache.org/zh/api.html#echartsInstance.on</a></p>
-</div></div></div></td></tr></div>`
-    }
-  ]
-}
+</div></div></div></td></tr></div>`}]};

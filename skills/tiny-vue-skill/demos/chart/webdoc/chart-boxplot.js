@@ -1,32 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'boxplot-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['boxplot/base.vue']
-    },
-    {
-      'demoId': 'boxplot-multiple',
-      'name': { 'zh-CN': '横向箱型图', 'en-US': 'horizontal box plot' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['boxplot/multiple.vue']
-    },
-    {
-      'demoId': 'boxplot-vertical',
-      'name': { 'zh-CN': '多系列箱型图', 'en-US': 'multi-series box plot' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['boxplot/vertical.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-boxplot', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'boxplot-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['boxplot/base.vue']},{'demoId':'boxplot-multiple','name':{'zh-CN':'横向箱型图','en-US':'horizontal box plot'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['boxplot/multiple.vue']},{'demoId':'boxplot-vertical','name':{'zh-CN':'多系列箱型图','en-US':'multi-series box plot'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['boxplot/vertical.vue']}],apis:[{'name':'chart-boxplot','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   axisSite: object // 指标所在的轴，默认不在 top 轴的指标都在 bottom 轴
   digit: number // 设置数据类型为 percent 时保留的位数，默认为 2
@@ -42,7 +14,4 @@ interface IChartSettings {
   xAxisType: array // 上下坐标轴数据类型，可选值：category , value 
   yAxisType: string // 纵轴的类型，可选值' category '，' value '，默认为' category '
 }
-`
-    }
-  ]
-}
+`}]};

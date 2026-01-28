@@ -1,4 +1,1 @@
-export default {
-  mode: ['pc'],
-  apis: []
-}
+export default{mode:['pc'],apis:[]};

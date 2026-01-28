@@ -1,274 +1,102 @@
-export default {
-  column: '2',
-  owner: '',
-  show: true,
-  cloud: true,
-  demos: [
-    {
-      demoId: 'basic-usage',
-      name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
-      },
-      desc: {
-        'zh-CN': `
+export default{column:'2',owner:'',show:true,cloud:true,demos:[{demoId:'basic-usage',name:{'zh-CN':'基本用法','en-US':'Basic Usage'},desc:{'zh-CN':`
           通过 <code>data</code> 属性提供左右列表全量的数据源，其是一个数组，每个数据项中默认字段有 <code>key</code>、<code>label</code>、<code>disabled</code>。<br>
           通过 <code>value</code> 属性指定右列表值的数组，其选择项只展示在右侧列表。
-          `,
-        'en-US': `
+          `,'en-US':`
           The <code>data</code> property provides the full data source for the left and right lists, which is an array of objects with the default fields key, label, and disabled for each item. <br>
           The <code>value</code> property specifies an array of values for the right list whose selections are displayed only in the right list.
-          `
-      },
-      codeFiles: ['basic-usage.vue']
-    },
-    {
-      demoId: 'custom-titles',
-      name: {
-        'zh-CN': '自定义列表标题区',
-        'en-US': 'Customized List Title'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['basic-usage.vue']},{demoId:'custom-titles',name:{'zh-CN':'自定义列表标题区','en-US':'Customized List Title'},desc:{'zh-CN':`
           通过 <code>titles</code> 属性，可对左右列表的标题进行自定义。<br>
           通过 <code>format</code> 属性，可定制左右侧列表顶部的数据统计的显示格式，请参考下面示例。
-          `,
-        'en-US': `
+          `,'en-US':`
           The titles of the left and right lists can be customized using the <code>titles</code> property. <br>
           The <code>format</code> attribute allows you to customize the format of the statistics at the top of the left and right lists, as shown in the following example:
-          `
-      },
-      codeFiles: ['custom-titles.vue']
-    },
-    {
-      demoId: 'custom-btns',
-      name: {
-        'zh-CN': '自定义按钮区',
-        'en-US': 'Display All Move Buttons'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['custom-titles.vue']},{demoId:'custom-btns',name:{'zh-CN':'自定义按钮区','en-US':'Display All Move Buttons'},desc:{'zh-CN':`
           按钮区包含默认转移按钮和全部转移按钮。按钮的高亮与禁用，组件内部会自动识别处理。<br>
           通过 <code>show-all-btn</code> 属性设置展示全部转移按钮，属性默认值为<code>false</code>。<br>
           通过 <code>button-texts</code> 属性自定义左右穿梭的默认转移按钮文本，接受包含 2 个字符串的数组值。全部转移按钮不能自定义文本。<br>
           你可以通过<code>to-left-disable</code> 和 <code>to-right-disable</code> 属性来指定默认转移按钮没有选中项时的状态。
-          `,
-        'en-US': `
+          `,'en-US':`
           The button area contains two types of buttons: default buttons and all buttons. Buttons are highlighted and disabled automatically by the component itself. <br>
           show all the move buttons with the <code>show-all-btn</code> property, which defaults to <code>false</code>. <br>
           The default button texts of the left and right shuttles are defined by the <code>button-texts</code> attribute, which accepts an array value containing 2 strings. No custom text for all buttons. <br>
           The <code>to-left-disable</code> and <code>to-right-disable</code> properties allow you to specify the state of the default button when no items are selected.
-          `
-      },
-      codeFiles: ['custom-btns.vue']
-    },
-    {
-      demoId: 'custom-footer',
-      name: {
-        'zh-CN': '自定义列表底部',
-        'en-US': 'Custom List Bottom'
-      },
-      desc: {
-        'zh-CN': '通过 <code>left-footer</code> 、 <code>right-footer</code> 插槽可分别对左右列表底部进行自定义。\n',
-        'en-US':
-          'The bottom of the list can be customized using the <code>left-footer</code> and <code>right-footer</code> slots, respectively. '
-      },
-      codeFiles: ['custom-footer.vue']
-    },
-    {
-      demoId: 'custom-render',
-      name: {
-        'zh-CN': '自定义数据项显示',
-        'en-US': 'Customized Data Item Rendering'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['custom-btns.vue']},{demoId:'custom-footer',name:{'zh-CN':'自定义列表底部','en-US':'Custom List Bottom'},desc:{'zh-CN':'通过 <code>left-footer</code> \u3001 <code>right-footer</code> 插槽可分别对左右列表底部进行自定义\u3002\n','en-US':'The bottom of the list can be customized using the <code>left-footer</code> and <code>right-footer</code> slots, respectively. '},codeFiles:['custom-footer.vue']},{demoId:'custom-render',name:{'zh-CN':'自定义数据项显示','en-US':'Customized Data Item Rendering'},desc:{'zh-CN':`
           通过 <code> props </code> 属性，可以指定<code> key / label /disabled </code>的映射列，以支持用户传入非标准格式的数据到<code>data</code>属性。<br>
           通过 <code> default </code> 插槽，自定义数据项渲染的 dom 结构，推荐使用插槽的方式。<br>
           通过 <code> render-content </code> 属性函数，使用 JSX 功能，去自定义数据项渲染的 dom 结构。<br>
           <div class="tip custom-block">
             <p class="custom-block-title">如果数据格式不是标准属性格式，则一定要通过<code>props</code>做属性映射！</p>
           </div>
-          `,
-        'en-US': `
+          `,'en-US':`
           Using the <code> props </code> property, you can simply specify that the <code> key/label /disabled </code> maps to the specified column of the data item. <br>
           The <code> default </code> slot allows you to fully customize the dom structure rendered by the data items.It is recommended that you use slots. <br>
           It is also possible to fully customize the dom structure rendered by a data item via the <code> render-content </code> property. <br>
           <div class="tip custom-block">
             <p class="custom-block-title">If the data is not in a standard attribute format, be sure to use <code>props</code> for property mapping!</p>
           </div>
-          `
-      },
-      codeFiles: ['custom-render.vue']
-    },
-    {
-      demoId: 'custom-size',
-      name: {
-        'zh-CN': '自定义面板大小',
-        'en-US': 'Customized Panel Size'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['custom-render.vue']},{demoId:'custom-size',name:{'zh-CN':'自定义面板大小','en-US':'Customized Panel Size'},desc:{'zh-CN':`
           通过 <code> panelStyle </code> 属性，可以指定左右面板容器的样式。当面板的宽度大于外部容器的50%宽度时，面板会自适应容器的宽度。<br>
           通过 <code> panelBodyStyle </code> 属性，可以指定面板内容区域的样式。<br>
           通过 <code> panelTableHeight </code> 属性，可以指定嵌套表格时，表格的高度值。嵌套表格的默认高度为400px, 当自定义面板内容区域的高度之后，可能会与表格高度不匹配。 可以通过该属性设置一个匹配的表格高度。<br>
-          `,
-        'en-US': `
+          `,'en-US':`
           By using the<code>panelStyle</code>property, you can specify the style of the left and right panel containers. When the width of the panel is greater than 50% of the width of the external container, the panel will adapt to the width of the container< br>
           The<code>panelBodyStyle</code>property allows you to specify the style of the panel content area< br>
           By using the<code>panelTableHeight</code>property, you can specify the height value of nested tables. The default height for nested tables is 400px, and when customizing the height of the panel content area, it may not match the height of the table. You can set a matching table height through this attribute< br> 
-          `
-      },
-      codeFiles: ['custom-size.vue']
-    },
-    {
-      demoId: 'custom-filter',
-      name: {
-        'zh-CN': '过滤搜索',
-        'en-US': 'Custom Search Method'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['custom-size.vue']},{demoId:'custom-filter',name:{'zh-CN':'过滤搜索','en-US':'Custom Search Method'},desc:{'zh-CN':`
           组件支持显示一个输入框，去过滤显示在左右列表的数据项。<br>
           通过 <code>filterable</code> 属性开启左右侧列表的搜索功能，默认是根据 label 内容过滤。<br>
           通过 <code>filter-placeholder</code> 属性自定义左右搜索框占位符。<br>
           通过 <code>filter-method</code> 钩子函数，可自定义左右列表搜索的方法。<br>
           调用 <code>clearQuery()</code> 方法，可清空左右侧列表的搜索框，参数为 left 或者 right。<br>
-          `,
-        'en-US': `
+          `,'en-US':`
           At the top of the left and right lists, you can display an input field to filter the data items that display the left and right lists. <br>
           Use the <code>filterable</code> attribute to enable the search function of the left and right lists, which by default filter based on the label content. <br>
           Use the <code>filter-placeholder</code> attribute to define the placeholder for the left and right search boxes. <br>
           The <code>filter-method</code> hook allows you to customize the way you search the left and right lists.<br>
           The <code>clearQuery()</code> method clears the search box in the left and right lists with either the left or right arguments.<br>
-          `
-      },
-      codeFiles: ['custom-filter.vue']
-    },
-    {
-      demoId: 'default-checked',
-      name: {
-        'zh-CN': '默认勾选项',
-        'en-US': 'Default options'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['custom-filter.vue']},{demoId:'default-checked',name:{'zh-CN':'默认勾选项','en-US':'Default options'},desc:{'zh-CN':`
           通过 <code>left-default-checked</code>、<code>right-default-checked</code> 属性分别指定左右侧列表默认的勾选数据。禁用数据项默认无法勾选。<br>
           通过组件实例上的<code>state</code>属性，可以查询组件当前左右列表的数据项和数据选中项等信息。
-          `,
-        'en-US': `
+          `,'en-US':`
           The <code>left-default-checked</code> and <code>right-default-checked</code> attributes specify the default check data for the left and right lists, respectively. Disabling the data item cannot be checked by default. <br>
           Using the <code>state</code> property on the component instance, you can query the current left and right list of the component for data items and data selected items.
-          `
-      },
-      codeFiles: ['default-checked.vue']
-    },
-    {
-      demoId: 'drop-config',
-      name: {
-        'zh-CN': '可拖拽',
-        'en-US': 'Drag left and right'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['default-checked.vue']},{demoId:'drop-config',name:{'zh-CN':'可拖拽','en-US':'Drag left and right'},desc:{'zh-CN':`
           <div class="tip custom-block">
             <p class="custom-block-title">使用拖拽功能时请先安装 sortablejs 插件</p>
           </div>
-          通过 <code>drop-config</code> 属性配置 sortablejs 插件进行左右拖拽穿梭。`,
-        'en-US': `
+          通过 <code>drop-config</code> 属性配置 sortablejs 插件进行左右拖拽穿梭。`,'en-US':`
         <div class="tip custom-block">
           <p class="custom-block-title"> Please install sortablejs plugin before using drag and drop function </p>
         </div>
-        Pass The <code>drop-config</code> property config the sortablejs plugin to do the left-right drag shuttle.`
-      },
-      codeFiles: ['drop-config.vue']
-    },
-    {
-      demoId: 'target-order',
-      name: {
-        'zh-CN': '右侧排序策略',
-        'en-US': 'Right Sorting Policy'
-      },
-      desc: {
-        'zh-CN': `
+        Pass The <code>drop-config</code> property config the sortablejs plugin to do the left-right drag shuttle.`},codeFiles:['drop-config.vue']},{demoId:'target-order',name:{'zh-CN':'右侧排序策略','en-US':'Right Sorting Policy'},desc:{'zh-CN':`
         通过 <code>target-order</code> 属性设置右侧列表元素的排序策略，有 original、push、unshift 三个选项，默认为 original。
           <div class="tip custom-block">
             <p class="custom-block-title">排序策略</p>
             <div>
               若为 original，则保持与数据源相同的顺序；<br>若为 push，则新加入的元素排在最后；<br>若为 unshift，则新加入的元素排在最前
             </div>
-          </div>`,
-        'en-US': `
+          </div>`,'en-US':`
           The <code>target-order</code> property sets the sorting strategy of the elements in the list on the right.There are three options: original, push, and unshift.The default is original.
           <div class="tip custom-block">
             <p class="custom-block-title"> Sorting strategy </p>
             <div>
              If original, keep same order as data source \n if push, Then the new element is last.  nIf unshift, the new element is first.
             </div>
-          </div>`
-      },
-      codeFiles: ['target-order.vue']
-    },
-    {
-      demoId: 'before-transfer',
-      name: {
-        'zh-CN': '穿梭拦截',
-        'en-US': 'Clear the search box manually'
-      },
-      desc: {
-        'zh-CN': `
+          </div>`},codeFiles:['target-order.vue']},{demoId:'before-transfer',name:{'zh-CN':'穿梭拦截','en-US':'Clear the search box manually'},desc:{'zh-CN':`
           调用 <code>before-transfer</code> 属性，接受一个函数来拦截穿梭的动作。 <br>
           该函数参数为一个回调函数，执行回调函数，数据项才允许穿梭。
-          `,
-        'en-US': `
+          `,'en-US':`
           Call the <code>before-transfer</code> property, which accepts a function to intercept the shuttle action. <br>
           This function takes a callback function and executes the callback function before the data item is allowed to shuttle.
-          `
-      },
-      codeFiles: ['before-transfer.vue']
-    },
-    {
-      demoId: 'nested-table',
-      name: {
-        'zh-CN': '嵌套表格',
-        'en-US': 'Nested Table'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['before-transfer.vue']},{demoId:'nested-table',name:{'zh-CN':'嵌套表格','en-US':'Nested Table'},desc:{'zh-CN':`
           当 <code>render</code> 属性里的 <code>plugin</code> 设置为 <code>Table</code> 时指定穿梭框渲染成表格，
           以下属性 <code> columns </code>  <code> pager-op </code> <code> show-pager </code> 是会传递给内部的表格组件。<br>
           属性 <code> left-columns </code> <code> right-columns </code> 可以分别指定左右列表的表头，优先级高于 <code> columns </code>  属性。
-          `,
-        'en-US': `
+          `,'en-US':`
           When <code>plugin</code> in the <code>render</code> attribute is set to <code>Table</code>, the shuttle box is rendered as a table,
           The following property <code> columns </code> <code> pager-op </code> <code> show-pager </code> is a table component that will be passed inside.<br>
           The <code> left-columns </code> <code> right-columns </code> attribute can specify the table headers of the left and right lists. The priority of the <code> left-columns </code> <code> right-columns </code> attribute is higher than that of the <code>columns</code> attribute.
-          `
-      },
-      codeFiles: ['nested-table.vue']
-    },
-    {
-      demoId: 'nested-tree',
-      name: {
-        'zh-CN': '嵌套树',
-        'en-US': 'Nested Tree'
-      },
-      desc: {
-        'zh-CN':
-          '当 <code>render</code> 属性里的 <code>plugin</code> 设置为 <code>Tree</code> 时指定穿梭框渲染成树，通过 <code>treeConfig</code> 属性配置树相关的配置（具体配置可参考 <code>tree</code> 组件的配置）。',
-        'en-US':
-          'When the <code>plugin</code> in the <code>render</code> attribute is set to <code>Tree</code>, you specify the shuttle to render as a tree. Configure the tree-like configuration via the <code>treeConfig</code> property (see the configuration of the <code>tree</code> component).'
-      },
-      codeFiles: ['nested-tree.vue']
-    },
-    {
-      demoId: 'transfer-events',
-      name: {
-        'zh-CN': '穿梭框事件',
-        'en-US': 'transfer Event'
-      },
-      desc: {
-        'zh-CN': `
+          `},codeFiles:['nested-table.vue']},{demoId:'nested-tree',name:{'zh-CN':'嵌套树','en-US':'Nested Tree'},desc:{'zh-CN':'当 <code>render</code> 属性里的 <code>plugin</code> 设置为 <code>Tree</code> 时指定穿梭框渲染成树\uFF0C通过 <code>treeConfig</code> 属性配置树相关的配置\uFF08具体配置可参考 <code>tree</code> 组件的配置\uFF09\u3002','en-US':'When the <code>plugin</code> in the <code>render</code> attribute is set to <code>Tree</code>, you specify the shuttle to render as a tree. Configure the tree-like configuration via the <code>treeConfig</code> property (see the configuration of the <code>tree</code> component).'},codeFiles:['nested-tree.vue']},{demoId:'transfer-events',name:{'zh-CN':'穿梭框事件','en-US':'transfer Event'},desc:{'zh-CN':`
           主要有 <code>change</code>、<code>left-check-change</code>、<code>right-check-change</code> 三个事件。
           <div class="tip custom-block">
             <p class="custom-block-title">事件说明</p>
@@ -277,8 +105,7 @@ export default {
               left-check-change：左侧列表元素被用户选中 / 取消选中时触发; <br>
               right-check-change：右侧列表元素被用户选中 / 取消选中时触发;
             </div>
-          </div> `,
-        'en-US': `
+          </div> `,'en-US':`
         There are three main events: <code>change</code>, <code>left-check-change</code>, and <code>right-check-change</code>.
         <div class="tip custom-block">
           <p class="custom-block-title"> Event description </p>
@@ -287,63 +114,4 @@ export default {
             left-check-change: left-check-change fires when the right side of the list changes.<br>
             right-check-change: Fires when the left list element is selected/deselected by the user.
           </div>
-        </div>`
-      },
-      codeFiles: ['transfer-events.vue']
-    }
-  ],
-  features: [
-    {
-      id: 'basic',
-      name: '基本用法',
-      support: {
-        value: true
-      },
-      description: '通过 data 属性提供数据源，value 属性指定右侧列表值。',
-      cloud: {
-        value: true
-      },
-      apis: ['data', 'value'],
-      demos: ['basic-usage']
-    },
-    {
-      id: 'custom',
-      name: '自定义',
-      support: {
-        value: true
-      },
-      description: '支持自定义标题、按钮文本、列表底部等内容。',
-      cloud: {
-        value: true
-      },
-      apis: ['titles', 'button-texts', 'left-footer', 'right-footer'],
-      demos: ['custom-titles', 'custom-btns', 'custom-footer']
-    },
-    {
-      id: 'filter',
-      name: '过滤搜索',
-      support: {
-        value: true
-      },
-      description: '通过 filterable 开启搜索功能，可自定义搜索方法。',
-      cloud: {
-        value: true
-      },
-      apis: ['filterable', 'filter-method'],
-      demos: ['custom-filter']
-    },
-    {
-      id: 'sort',
-      name: '排序策略',
-      support: {
-        value: true
-      },
-      description: '通过 target-order 设置右侧列表元素的排序策略。',
-      cloud: {
-        value: true
-      },
-      apis: ['target-order'],
-      demos: ['target-order']
-    }
-  ]
-}
+        </div>`},codeFiles:['transfer-events.vue']}],features:[{id:'basic',name:'基本用法',support:{value:true},description:'通过 data 属性提供数据源\uFF0Cvalue 属性指定右侧列表值\u3002',cloud:{value:true},apis:['data','value'],demos:['basic-usage']},{id:'custom',name:'自定义',support:{value:true},description:'支持自定义标题\u3001按钮文本\u3001列表底部等内容\u3002',cloud:{value:true},apis:['titles','button-texts','left-footer','right-footer'],demos:['custom-titles','custom-btns','custom-footer']},{id:'filter',name:'过滤搜索',support:{value:true},description:'通过 filterable 开启搜索功能\uFF0C可自定义搜索方法\u3002',cloud:{value:true},apis:['filterable','filter-method'],demos:['custom-filter']},{id:'sort',name:'排序策略',support:{value:true},description:'通过 target-order 设置右侧列表元素的排序策略\u3002',cloud:{value:true},apis:['target-order'],demos:['target-order']}]};

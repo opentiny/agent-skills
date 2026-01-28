@@ -1,56 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'ring-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/base.vue']
-    },
-    {
-      'demoId': 'ring-demo2',
-      'name': { 'zh-CN': '双重圆环图', 'en-US': 'double donut chart' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/demo2.vue']
-    },
-    {
-      'demoId': 'ring-demo3',
-      'name': { 'zh-CN': '多重圆环图', 'en-US': 'multiple donut chart' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/demo3.vue']
-    },
-    {
-      'demoId': 'ring-demo4',
-      'name': { 'zh-CN': '数据和为 0 时不显示扇区', 'en-US': 'Not show sectors when data sum is 0' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/demo4.vue']
-    },
-    {
-      'demoId': 'ring-demo5',
-      'name': { 'zh-CN': '小容器圆环图', 'en-US': 'Small container donut chart' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/demo5.vue']
-    },
-    {
-      'demoId': 'ring-demo6',
-      'name': { 'zh-CN': '鼠标悬浮提示框', 'en-US': 'Mouse hovering prompt box' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/demo6.vue']
-    },
-    {
-      'demoId': 'ring-ring-title',
-      'name': { 'zh-CN': '中心文本配置', 'en-US': 'Central Text Configuration' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['ring/ring-title.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-ring', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'ring-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/base.vue']},{'demoId':'ring-demo2','name':{'zh-CN':'双重圆环图','en-US':'double donut chart'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/demo2.vue']},{'demoId':'ring-demo3','name':{'zh-CN':'多重圆环图','en-US':'multiple donut chart'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/demo3.vue']},{'demoId':'ring-demo4','name':{'zh-CN':'数据和为 0 时不显示扇区','en-US':'Not show sectors when data sum is 0'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/demo4.vue']},{'demoId':'ring-demo5','name':{'zh-CN':'小容器圆环图','en-US':'Small container donut chart'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/demo5.vue']},{'demoId':'ring-demo6','name':{'zh-CN':'鼠标悬浮提示框','en-US':'Mouse hovering prompt box'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/demo6.vue']},{'demoId':'ring-ring-title','name':{'zh-CN':'中心文本配置','en-US':'Central Text Configuration'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['ring/ring-title.vue']}],apis:[{'name':'chart-ring','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   dataType: string // 数据类型，可选值：KMB , normal , percent 
   digit: number // 设置数据类型为 percent 时保留的位数，默认为 2
@@ -67,7 +15,4 @@ interface IChartSettings {
   roseType: string // 显示为南丁格尔玫瑰图，默认不展示为南丁格尔玫瑰图，可设置为' radius ',' area '
   selectedMode: string // 选中模式，可选值：single , multiple，默认为 false 
 }
-`
-    }
-  ]
-}
+`}]};

@@ -1,56 +1,4 @@
-export default {
-  column: '2',
-  owner: '',
-  demos: [
-    {
-      'demoId': 'pie-base',
-      'name': { 'zh-CN': '基本用法', 'en-US': 'Basic Usage' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/base.vue']
-    },
-    {
-      'demoId': 'pie-demo2',
-      'name': { 'zh-CN': '自定义配色', 'en-US': 'Custom Coloring' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/demo2.vue']
-    },
-    {
-      'demoId': 'pie-demo3',
-      'name': { 'zh-CN': '鼠标悬浮提示框', 'en-US': 'Mouse hovering prompt box' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/demo3.vue']
-    },
-    {
-      'demoId': 'pie-demo4',
-      'name': { 'zh-CN': '图标和图例的位置调整', 'en-US': 'Adjusting the Positions of Icons and Legends' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/demo4.vue']
-    },
-    {
-      'demoId': 'pie-demo5',
-      'name': { 'zh-CN': '图表描边颜色配置', 'en-US': 'Configuring Chart Stroke Colors' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/demo5.vue']
-    },
-    {
-      'demoId': 'pie-demo6',
-      'name': { 'zh-CN': '可滚动翻页图例', 'en-US': 'Scrollable Page Turn Legend' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/demo6.vue']
-    },
-    {
-      'demoId': 'pie-demo7',
-      'name': { 'zh-CN': '自定义图例大小', 'en-US': 'Customizing the legend Size' },
-      'desc': { 'zh-CN': '详细用法参考如下示例', 'en-US': 'For details, see the following example.' },
-      'codeFiles': ['pie/demo7.vue']
-    }
-  ],
-  apis: [{ 'name': 'chart-pie', 'type': 'component', 'props': [], 'events': [], 'slots': [] }],
-  types: [
-    {
-      name: 'IChartSettings',
-      type: 'interface',
-      code: `
+export default{column:'2',owner:'',demos:[{'demoId':'pie-base','name':{'zh-CN':'基本用法','en-US':'Basic Usage'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/base.vue']},{'demoId':'pie-demo2','name':{'zh-CN':'自定义配色','en-US':'Custom Coloring'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/demo2.vue']},{'demoId':'pie-demo3','name':{'zh-CN':'鼠标悬浮提示框','en-US':'Mouse hovering prompt box'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/demo3.vue']},{'demoId':'pie-demo4','name':{'zh-CN':'图标和图例的位置调整','en-US':'Adjusting the Positions of Icons and Legends'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/demo4.vue']},{'demoId':'pie-demo5','name':{'zh-CN':'图表描边颜色配置','en-US':'Configuring Chart Stroke Colors'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/demo5.vue']},{'demoId':'pie-demo6','name':{'zh-CN':'可滚动翻页图例','en-US':'Scrollable Page Turn Legend'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/demo6.vue']},{'demoId':'pie-demo7','name':{'zh-CN':'自定义图例大小','en-US':'Customizing the legend Size'},'desc':{'zh-CN':'详细用法参考如下示例','en-US':'For details, see the following example.'},'codeFiles':['pie/demo7.vue']}],apis:[{'name':'chart-pie','type':'component','props':[],'events':[],'slots':[]}],types:[{name:'IChartSettings',type:'interface',code:`
 interface IChartSettings {
   dataType: string // 数据类型，可选值：KMB , normal , percent 
   digit: number // 设置数据类型为 percent 时保留的位数，默认为 2
@@ -70,7 +18,4 @@ interface IChartSettings {
 }
 
 > 备注 1. level 的值接受二维数组，例如：  [['a', 'b'], ['c', 'd']]  , 表示的含义是内层展示的是维度中的  'a', 'b'  的指标加在一起组成的饼图，外层为  'c', 'd'  的指标加在一起组成的环图。
-`
-    }
-  ]
-}
+`}]};
