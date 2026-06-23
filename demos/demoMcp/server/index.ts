@@ -1,8 +1,7 @@
 import express from 'express'
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
-import { mcp, scenarios } from './mcp-server.js'
-import { runLLMWithMCP } from './llm.js'
-import type { LLMStep } from './llm.js'
+import { mcp, scenarios } from './mcp-server.ts'
+import { runLLMWithMCP } from './llm.ts'
 
 const app = express()
 app.use(express.json())

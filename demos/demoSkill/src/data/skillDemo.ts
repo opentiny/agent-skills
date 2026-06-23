@@ -148,8 +148,8 @@ export const tableRows: TableRow[] = [
 ]
 
 export const promptSamples = [
-  '帮我生成一个 TinyVue Grid，支持状态标签、排序、搜索、操作按钮(移除)。',
-  '把表格改成支持多选，并增加批量同步 Skill 的按钮。',
+  '帮我生成一个 TinyVue Grid，支持状态标签、排序、搜索、支持删除，数据随机。',
+  '把表格改成支持多选，并增加 批量同步 的按钮。',
   '为 TinyVue Grid 增加空态、加载态和错误提示，代码要符合 Vue3 script setup。'
 ]
 
