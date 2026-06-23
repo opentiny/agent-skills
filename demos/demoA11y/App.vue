@@ -388,6 +388,7 @@ async function copyCode(id: string): Promise<void> {
   border-radius: 4px;
   outline: none;
   min-width: 160px;
+  width: 100%;
 }
 
 .native-select {
@@ -399,6 +400,7 @@ async function copyCode(id: string): Promise<void> {
   min-width: 160px;
   background: #fff;
   cursor: pointer;
+  width: 100%;
 }
 
 .native-btn {

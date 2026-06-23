@@ -1,7 +1,7 @@
 import express from 'express'
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
 import { mcp, scenarios } from './mcp-server.ts'
-import { runLLMWithMCP } from './llm.ts'
+import { LLMStep, runLLMWithMCP } from './llm.ts'
 
 const app = express()
 app.use(express.json())
@@ -30,7 +30,7 @@ app.delete('/mcp', async (req, res) => {
 // ========== LLM + MCP 对话 endpoint ==========
 // 前端发送自然语言 → LLM 决策调用哪些 MCP 工具 → 执行工具 → 返回完整交互过程
 
-app.post('/chat', async (req, res) => {
+app.post('/chat', async (req: { body: { prompt: string } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: any; success?: boolean; steps?: never[] }): void; new(): any } }; json: (arg0: { success: boolean; finalMessage: string; steps: LLMStep[] }) => void }) => {
   const { prompt } = req.body as { prompt: string }
 
   if (!prompt) {
