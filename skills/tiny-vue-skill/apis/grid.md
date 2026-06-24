@@ -262,8 +262,8 @@
 | sortable | boolean | false | 设置该列数据是否可以排序 |
 | title | string \| (h, params)=> string \| VNode |  | 列标题（支持开启国际化），可以是函数 |
 | tree-node | boolean | false | 只对 tree-config 配置时有效，指定为树节点 |
-| type | 'index' \| 'selection' \| 'radio' \| 'expand' \| 'operation' | | 设置内置列的类型，其中operation属于多端属性，不是PC端属性 |
-| operation-config | object | 多端属性，指定操作列配置，不是PC端属性 |
+| type | 'index' \| 'selection' \| 'radio' \| 'expand' \| 'operation' |  | 设置内置列的类型 |
+| operation-config | IOperationConfig |  | 当 <code>type="operation"</code> 时有效，通过 <code>operationConfig</code> 配置操作列 |
 | width | number \| string |  | 设置列的宽度，可以是像素或者百分比或者 auto ，设置为 auto 时，列宽会自动适应；该属性的可选值为 整数 ， px ，% |
 
 ### Slots
@@ -1355,5 +1355,20 @@ interface ICustomConfig {
   visible?: boolean
   // 列宽
   width?: number | string
+}
+```
+
+### IOperationConfig
+
+```typescript
+interface IOperationConfig {
+  // 操作列的按钮配置
+  buttons: Array<{name:string, icon:Icon, click:()=>void, hidden:(row)=> boolean, class?:string, disabled?:boolean| (row)=> boolean}>
+  // 最多显示按钮数，默认值为3
+  max?: number
+  // 自定义操作列渲染函数， 优先级高
+  render?: ({h, buttons, params}) => VNode
+  // 禁用时需要添加的class
+  disabledClass?:string
 }
 ```

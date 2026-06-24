@@ -10,3 +10,4 @@
 | operation-column-custom-operation-column | 自定义操作列内容 | <p>通过默认插槽设置自定义操作列。</p><br> | grid/operation-column/custom-operation-column.vue |
 | operation-column-dropdown | 表头下拉菜单 | <p>使用多选列 dropdown 插槽，可以在多选列表头配置自定义下拉菜单，示例中使用 TinyDropdown 组件。</p><br> | grid/operation-column/dropdown.vue |
 | operation-column-header-select-disabled | 表头自动禁用 | <p>多选模式，在空数据时复选列表头自动禁用；如果设置 <code>selectConfig.headerAutoDisabled</code> 为 <code>false</code> ，则不自动禁用，保持和旧版本兼容。</p><br> | grid/operation-column/header-select-disabled.vue |
+| operation-column | 操作列的按钮配置 | 通过type="operation"设置列为操作列，通过operationConfig配置操作列的按钮 | grid/operation-column/operation-column.vue |

@@ -4,7 +4,7 @@
 
 | 属性名 | 类型 | 默认值 | 说明 |
 |--------|------|--------|------|
-| before-close | Function |  | 可以配置一个拦截弹窗关闭的方法。如果方法返回 false 值，则拦截弹窗关闭；否则不拦截 |
+| before-close | Function |  | 设置关闭前的回调函数（仅点击关闭按钮或遮罩区域时被调用），如果回调函数返回 false 则阻止窗口关闭 |
 | cancel-btn-props | Button.props | {} | 自定义取消按钮的 props ，可选值与 Button 组件一致 |
 | cancel-content | string | '取消' | 自定义取消按钮内容 |
 | confirm-btn-props | Button.props | {} | 自定义确认按钮 props，可选值与 Button 组件一致 |

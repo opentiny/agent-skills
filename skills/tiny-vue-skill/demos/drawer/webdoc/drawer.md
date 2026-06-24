@@ -3,6 +3,7 @@
 | demoId | 名称 | 描述 | 代码文件 |
 |--------|------|------|----------|
 | basic-usage | 基本用法 | <p>详细用法参考如下示例。</p> | drawer/basic-usage.vue |
+| drawer-to-body | 挂载节点 | <code>append-to-body</code> 属性可以将抽屉挂载到 body 元素上。默认值为 <code>false</code>，即挂载在当前组件内。 | drawer/drawer-to-body.vue |
 | close-on-press-escape | 按下 ESC 关闭抽屉 | <p>添加 <code>close-on-press-escape</code> 属性可以控制是否可以通过 ESC 关闭抽屉。</p> | drawer/close-on-press-escape.vue |
 | use-through-method | 通过方法调用 | <p>通过 <code>Drawer.service</code> 方法可配置并打开抽屉，方法返回组件实例，可调用其 <code>close</code> 方法关闭组件。</p> | drawer/use-through-method.vue |
 | placement | 抽屉方向 | <p>添加 <code>placement</code> 属性设置抽屉的方向，可选值有 <code>'left' \| 'right' \| 'top' \| 'bottom'</code>，默认值为 <code>'right'</code>。</p> | drawer/placement.vue |
@@ -12,6 +13,7 @@
 | mask | 遮罩层显示隐藏 | <p>添加 <code>mask</code> 属性可以控制遮罩层显示隐藏，默认值为 <code>true</code> 。</p> | drawer/mask.vue |
 | before-close | 拦截抽屉关闭 | <p>通过 <code>before-close</code> 属性可以配置一个拦截弹窗关闭的方法。如果方法返回 <code>false</code> 值，则拦截弹窗关闭；否则不拦截。</p><br>          <p>可以通过该拦截方法传入的参数获取关闭的操作类型 <code>type</code> 弹窗有以下关闭类型：</p><br>          <ul><br>            <li>confirm：点击确定按钮时关闭</li><br>            <li>cancel：点击取消时关闭</li><br>            <li>close：点击关闭按钮时关闭</li><br>            <li>mask：点击遮罩层时关闭</li><br>          </ul> | drawer/before-close.vue |
 | mask-closable | 点击遮罩层关闭抽屉 | <p>默认弹窗打开后，可以单击遮罩层关闭弹窗，设置 <code>mask-closable</code> 为 <code>false</code> 后将禁用该功能，默认值为 <code>true</code> 。</p> | drawer/mask-closable.vue |
+| destroy-on-close | 关闭时销毁主体元素 | <p>可通过<code>destroy-on-close</code>属性设置<code>true</code>在关闭抽屉时销毁<code>drawer</code>抽屉内的所有元素，默认值为<code>false</code>。</p> | drawer/destroy-on-close.vue |
 | show-close | 关闭图标显示 | <p><code>show-close</code> 控制显示关闭图标，默认值为 <code>true</code>。</p> | drawer/show-close.vue |
 | show-header | 头部显示 | <p><code>show-header</code> 控制显示头部，默认值为 <code>true</code>。</p> | drawer/show-header.vue |
 | show-footer | 底部显示 | <p><code>show-footer</code> 控制显示底部，默认值为 <code>false</code>。</p> | drawer/show-footer.vue |

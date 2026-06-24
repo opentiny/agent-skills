@@ -7,6 +7,7 @@
 | about-step | 步长 | 可通过<code>step</code>属性设置计数器的加减数值及<code>mode</code>模式为<code>restore</code>、<code>strictly</code>的用法，<code>step-strictly</code>属性设置只能输入 step 的倍数 | numeric/about-step.vue |
 | precision | 数值精度及格式 | 可通过<code>precision</code>属性设置计数器的精度值，<code>format</code>属性设置数字显示格式。 | numeric/precision.vue |
 | dynamic-disabled | 禁用 | 可通过<code>disabled</code>属性设置是否禁用计数器。 | numeric/dynamic-disabled.vue |
+| parse-input | 自定义输入值解析 | 自定义输入值解析函数，优先级较高。当输入字符以及粘贴时，会调用该函数进行解析。 | numeric/parse-input.vue |
 | allow-empty | 可清空 | 可通过<code>allow-empty</code>属性设置计数器内容的可清空特性，默认为 <code>false</code>，表示不可清空。 | numeric/allow-empty.vue |
 | empty-value | 设定清空输入后的绑定值 | 可通过 <code>empty-value</code> 属性设置计数器在可清空下，清空后组件的绑定值。默认为 <code>undefined</code>。示例中将清空后组件绑定值改为<code>null</code> | numeric/empty-value.vue |
 | numeric-size | 尺寸 | 可通过 <code>size</code> 属性设置计数器尺寸，可选值有 <code>medium</code><code>small</code><code>mini</code>。 | numeric/numeric-size.vue |

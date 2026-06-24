@@ -7,6 +7,7 @@
 | append-to-body | boolean | false | drawer 本身是否插入到 body 上 |
 | before-close | (type) => boolean |  | 弹窗关闭前的回调，返回 false 会阻止弹窗关闭 |
 | custom-class | String |  | 自定义 class 样式 |
+| destroy-on-close | boolean | false | 关闭时销毁抽屉内的元素，而非隐藏 |
 | dragable | boolean | false | 是否开启抽屉的宽度拖拽功能 |
 | flex | Object |  | 是否开启 flex 盒子布局，开启后内容区域元素自适应撑开高度，默认值为 false |
 | lock-scroll | Object |  | 弹出面板是否锁定浏览器滚动条，默认值为 true |
