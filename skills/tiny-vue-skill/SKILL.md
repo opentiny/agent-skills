@@ -38,7 +38,7 @@ metadata:
 ## 目录结构
 
 ```
-./menus.js     - 所有组件的名称索引
+./menu.md      - 所有组件的名称索引和指令名称索引
 ./webdoc/      - 工程配置文档（安装、引入、i18n、主题等）
 ./apis/        - 组件 API 文档（属性、事件、插槽、类型）
 ./demos/       - 组件示例代码源码
@@ -52,7 +52,7 @@ metadata:
 | 规则文档                                    | 适用场景                                           |
 | ------------------------------------------- | -------------------------------------------------- |
 | [project-setting](rules/project-setting.md) | 安装 TinyVue、引入组件、配置国际化、主题、深色模式 |
-| [component-use](rules/component-use.md)     | 查找组件 API 文档和示例代码源码                    |
+| [component-use](rules/component-use.md)     | 查找组件 API 文档和示例代码源码， 查找指令的示例代码    |
 
 ## 重要约束
 

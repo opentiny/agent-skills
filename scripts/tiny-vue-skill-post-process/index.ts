@@ -311,6 +311,155 @@ async function processDemos(demosDir: string) {
   }
 }
 
+function extractExportedArray(content: string, exportName: string): string | null {
+  const marker = `export const ${exportName} = `;
+  const markerIndex = content.indexOf(marker);
+  if (markerIndex === -1) return null;
+
+  let i = markerIndex + marker.length;
+  while (i < content.length && /\s/.test(content[i])) i++;
+  if (content[i] !== '[') return null;
+
+  const arrayStart = i;
+  let depth = 0;
+  let inSingle = false;
+  let inDouble = false;
+  let inTemplate = false;
+  let escaped = false;
+
+  while (i < content.length) {
+    const ch = content[i];
+
+    if (escaped) {
+      escaped = false;
+      i++;
+      continue;
+    }
+
+    if (inSingle) {
+      if (ch === '\\') escaped = true;
+      else if (ch === "'") inSingle = false;
+      i++;
+      continue;
+    }
+
+    if (inDouble) {
+      if (ch === '\\') escaped = true;
+      else if (ch === '"') inDouble = false;
+      i++;
+      continue;
+    }
+
+    if (inTemplate) {
+      if (ch === '\\') escaped = true;
+      else if (ch === '`') inTemplate = false;
+      i++;
+      continue;
+    }
+
+    if (ch === "'") {
+      inSingle = true;
+      i++;
+      continue;
+    }
+    if (ch === '"') {
+      inDouble = true;
+      i++;
+      continue;
+    }
+    if (ch === '`') {
+      inTemplate = true;
+      i++;
+      continue;
+    }
+    if (ch === '/' && content[i + 1] === '/') {
+      while (i < content.length && content[i] !== '\n') i++;
+      continue;
+    }
+
+    if (ch === '[') depth++;
+    else if (ch === ']') {
+      depth--;
+      if (depth === 0) {
+        return content.slice(arrayStart, i + 1);
+      }
+    }
+
+    i++;
+  }
+
+  return null;
+}
+
+// ********** Process Menus **********
+async function processMenus(menusPath: string) {
+  try {
+    const content = await fs.readFile(menusPath, 'utf8');
+    const arrayLiteral = extractExportedArray(content, 'cmpMenus');
+
+    if (!arrayLiteral) {
+      console.log('Skipping', menusPath, '- no cmpMenus found');
+      return;
+    }
+
+    let cmpMenusData: any[] = [];
+    try {
+      // eslint-disable-next-line no-new-func
+      cmpMenusData = new Function('return ' + arrayLiteral)();
+    } catch (err) {
+      console.error('Failed to evaluate cmpMenus', menusPath, err);
+      return;
+    }
+
+    if (!Array.isArray(cmpMenusData) || cmpMenusData.length === 0) {
+      console.log('Skipping', menusPath, '- cmpMenus is empty');
+      return;
+    }
+
+    const mdContent = convertCmpMenusToMarkdown(cmpMenusData);
+    const mdPath = path.join(path.dirname(menusPath), 'menu.md');
+    await fs.unlink(menusPath);
+    await fs.writeFile(mdPath, mdContent, 'utf8');
+    console.log('Processed Menus', menusPath, '->', mdPath);
+  } catch (parseErr) {
+    console.error(
+      'Failed to process menus',
+      menusPath,
+      '-',
+      parseErr instanceof Error ? parseErr.message : parseErr
+    );
+  }
+}
+
+function convertCmpMenusToMarkdown(cmpMenus: any[]): string {
+  const lines: string[] = [];
+  lines.push('# 组件目录');
+  lines.push('');
+
+  for (const category of cmpMenus) {
+    const label = category.label || '';
+    const labelEn = category.labelEn || '';
+    lines.push(`## ${label}${labelEn ? ` (${labelEn})` : ''}`);
+    lines.push('');
+    lines.push('| 中文名 | 组件名 | key |');
+    lines.push('|--------|--------|-----|');
+
+    if (category.children && Array.isArray(category.children)) {
+      for (const item of category.children) {
+        const nameCn = item.nameCn || '';
+        const name = item.name || '';
+        const key = item.key || '';
+        lines.push(
+          `| ${escapeTableCell(nameCn)} | ${escapeTableCell(name)} | ${escapeTableCell(key)} |`
+        );
+      }
+    }
+    lines.push('');
+  }
+
+  return lines.join('\n');
+}
+
 function convertDemosToMarkdown(demos: any[], componentName: string): string {
   const lines: string[] = [];
 
@@ -349,11 +498,11 @@ function convertDemosToMarkdown(demos: any[], componentName: string): string {
 async function process() {
   const target = '../skills/tiny-vue-skill';
 
-  // 1. compress menus.js (not mangling variable names)
+  // 1. extract cmpMenus from menus.js and save as menu.md table
   const menusPath = path.join(target, 'menus.js');
 
   if (await fileExists(menusPath)) {
-    await compressFile(menusPath);
+    await processMenus(menusPath);
   }
 
   // 2. webdoc: delete *-en.md and files starting with changelog, aui, introduce
