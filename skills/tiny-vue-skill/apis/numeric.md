@@ -38,6 +38,7 @@
 | change-compat | boolean | false | 设置除加减按钮及直接输入数值之外，值改变后是否触发change事件 |
 | validate-event | boolean |  | 验证事件，默认值为true |
 | string-mode | boolean |  | 使用字符串模式，精度超过JS限制时使用 |
+| parse-input | (value:string)=>string |  | 自定义输入值解析函数，优先级较高。当输入字符以及粘贴时，会调用该函数进行解析。 |
 
 ### Events
 

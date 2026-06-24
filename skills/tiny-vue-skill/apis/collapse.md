@@ -8,6 +8,7 @@
 | before-close | (item: Component, activeNames: string \| number \| Array) => boolean |  | 阻止折叠面板切换 |
 | modelValue / v-model | string \| number \| Array |  | 当前激活的面板。如果是手风琴模式，绑定值类型需要为 string \| number，否则为 Array |
 | v-model | String / Array /Number |  | 当前激活的面板(如果是手风琴模式，绑定值类型需要为string，否则为array) |
+| size | String |  | 控制折叠面板的尺寸，可选值为 "" \| "medium" |
 
 ### Events
 
