@@ -23,6 +23,13 @@ jobs:
         with:
           path: current-repo
           token: ${{ secrets.MY_GITHUB_PUSH_TOKEN }} # 具有写入权限的令牌
+      # 1.1、安装Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+          cache-dependency-path: current-repo/scripts/pnpm-lock.yaml
       # 2、检出TinyVue仓库
       - name: Chheckout TinyVue repo
         uses: actions/checkout@v4
