@@ -36,7 +36,7 @@ API 兼容时可复制独立模块并合并宿主接线；API 不同则逐项适
 使用实际 Skill 目录和目标应用绝对路径进行比较：
 
 ```bash
-SKILL_DIR=/absolute/path/to/opentiny-ai-app-integration
+SKILL_DIR=/absolute/path/to/opentiny-next-app-integration
 TARGET_APP_DIR=/absolute/path/to/vue-app
 diff -ru "$SKILL_DIR/assets/genui-v1.3.0/genui" "$TARGET_APP_DIR/src/tiny-robot-chat/genui"
 ```

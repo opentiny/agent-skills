@@ -1,5 +1,5 @@
 ---
-name: opentiny-ai-app-integration
+name: opentiny-next-app-integration
 description: Use when an existing Vue 3 + Vite app needs OpenTiny TinyRobot Chat, GenUI, business WebMCP, business Skill, or PageTool integration and the installed APIs, ownership boundaries, or validation scope must be established from the project.
 license: MIT
 metadata:
@@ -7,7 +7,7 @@ metadata:
   version: '1.0.0'
 ---
 
-# OpenTiny AI 应用集成
+# OpenTiny Next 应用集成
 
 在现有 Vue 3 + Vite 业务应用中增量接入 TinyRobot、GenUI、业务 WebMCP 和 PageTool。以目标项目实际安装的包、公开 API 和业务声明为准，不用演示组件、模拟工具或预设回答替代真实接入。
 
