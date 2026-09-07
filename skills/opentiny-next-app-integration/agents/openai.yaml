@@ -1,0 +1,6 @@
+interface:
+  display_name: "OpenTiny Next 应用集成"
+  short_description: "为 Vue 3 Vite 应用接入 TinyRobot、GenUI、WebMCP 与 PageTool"
+  default_prompt: "使用 $opentiny-next-app-integration 在当前 Vue 3 + Vite 应用中完成所需的 OpenTiny Next 集成。"
+policy:
+  allow_implicit_invocation: true

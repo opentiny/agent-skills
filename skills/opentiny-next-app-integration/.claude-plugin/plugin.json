@@ -1,0 +1,9 @@
+{
+  "name": "opentiny-next-app-integration",
+  "description": "为现有 Vue 3 + Vite 应用增量接入 TinyRobot Chat、GenUI、业务 WebMCP、业务 Skill 与 PageTool。",
+  "version": "1.0.0",
+  "author": {
+    "name": "OpenTiny"
+  },
+  "license": "MIT"
+}
