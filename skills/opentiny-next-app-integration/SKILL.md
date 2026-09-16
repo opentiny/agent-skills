@@ -41,7 +41,7 @@ metadata:
 
 ### 1. TinyRobot Chat
 
-先查找项目中已有的 TinyRobot 组件和挂载链。不存在时，按 [TinyRobot 接入](references/opentiny-integration.md) 中当前锁定的已发布 CLI 执行 `add chat`，不使用 `create`。CLI 版本只约束生成器调用，不替代对目标项目 runtime 版本和 API 的检查。
+先查找项目中已有的 TinyRobot 组件和挂载链。不存在时，按 [TinyRobot 接入](references/opentiny-integration.md) 中当前锁定的已发布 CLI 先执行 `add chat --dry-run`，确认计划后再应用，不使用 `create`。CLI 版本只约束生成器调用，不替代对目标项目 runtime 版本和 API 的检查。
 
 CLI 生成文件或同名组件存在并不单独证明接入完成。继续前确认：依赖与 lockfile 可解析、`TrThemeProvider`/`TrChat` 使用当前包的有效导出、组件在真实入口链中只挂载一次、样式已接入。
 
@@ -55,15 +55,15 @@ CLI 生成文件或同名组件存在并不单独证明接入完成。继续前�
 
 ### 3. 业务 WebMCP 与业务 Skill
 
-接入 Next SDK 的浏览器 WebMCP 初始化、TinyRobot adapter 和 `src/skills/**/SKILL.md` 加载链。adapter 从 `document.modelContext` 读取并执行真实 descriptor，不维护重复的业务 schema。
+接入 Next SDK 的浏览器 WebMCP 初始化、TinyRobot adapter 和 `src/skills/**/SKILL.md` 加载链。adapter 从 `document.modelContext` 读取并执行真实 descriptor，不维护重复的业务 schema。加载后的业务 Skill instructions 必须通过当前唯一请求所有者进入模型请求；已有自定义 `responseProvider` 时扩展它，不绕过现有模型与 GenUI 路由创建第二条请求链。
 
-业务方负责在实际页面或业务模块中注册工具，并编写对应业务 Skill；工具名、参数、返回值、副作用和确认规则均以业务声明为准。不要根据页面字段、按钮、路由或示例生成业务工具。
+业务方负责在实际页面或业务模块中注册工具，并编写对应业务 Skill；工具名、参数、返回值、副作用和确认规则均以业务声明为准。业务工具若产生会影响后续模型决策的页面状态变化，应在工具合同中说明；返回结果只反馈已经完成的可观察状态。专用工具结果已经足以完成用户目标时，不再用 PageTool 重复搜索或验证。不要根据页面字段、按钮、路由或示例生成业务工具。
 
-工具注册作用域由可见性要求决定：仅在当前页面使用的工具可以随页面挂载；一条用户消息需要跨路由后继续调用、且当前 TinyRobot 在轮次开始时固定工具快照时，只将该流程依赖的业务工具迁移为应用级持久注册。迁移时删除页面同名注册，并保持业务合同和共享状态不变。具体规则见 [业务 WebMCP](references/webmcp-business-skill.md)。
+工具注册作用域由业务可见性决定：仅在当前页面成立的能力随页面挂载和卸载，真正与页面无关的能力才应用级持久注册。不能为了绕过 TinyRobot 的轮次工具快照而改变业务工具作用域；同一条消息跨路由后继续调用页面工具时，应使用目标版本公开的逐模型请求工具刷新能力。TinyRobot Chat `0.5.2-alpha.15` 可使用版本化资产中的动态 `toolPlugin`，在每次模型请求前读取当前已注册且启用的 descriptor，同时把 adapter runtime 单独连接到 MCP 面板。具体规则见 [业务 WebMCP](references/webmcp-business-skill.md)。
 
 Next SDK 必须是目标应用可追踪的直接依赖，并在客户端入口、`createApp` 和业务页面注册工具之前完成官方 WebMCP 初始化。自定义 adapter 是 MCP 唯一所有者时，不得同时向 `useLocalChatRuntime` 传入 `mcpServers`；已有真实 MCP server 不能静默删除，按 [Runtime 所有权](references/runtime-ownership.md) 合并或停止并报告。
 
-adapter 必须按目标版本真实合同处理异步工具发现、模型可见的 server 命名空间、同一 descriptor 执行、参数序列化、`toolchange` 刷新和组件卸载清理。命中已验证版本范围时可使用 [业务 WebMCP](references/webmcp-business-skill.md) 中的版本化模板；否则逐项适配。
+adapter 必须按目标版本真实合同处理异步工具发现、模型可见的 server 命名空间、同一 descriptor 执行、参数序列化、`toolchange` 刷新和组件卸载清理。`toolchange` 只代表目录和界面状态已刷新；当前轮次后续模型请求是否重新取工具必须由 runtime 原生能力或动态工具 plugin 保证。命中已验证精确版本时可使用 [业务 WebMCP](references/webmcp-business-skill.md) 中的版本化模板；否则把模板作为数据流参考并逐项适配。
 
 ### 4. PageTool
 
@@ -71,7 +71,11 @@ adapter 必须按目标版本真实合同处理异步工具发现、模型可见
 
 基础设施可以实现查询通道，但模型只能观察业务方声明的安全范围；没有声明时不暴露业务页面内容。页面目标、稳定标识、可操作动作和排除区域由业务方声明；未声明时不要自行给菜单、按钮或区块添加可操作语义。若 SDK 本身没有动作授权机制，在 adapter 执行前校验动作与目标。提交、删除、发布、支付等副作用应使用带业务 ID、权限和确认合同的专用 WebMCP 工具，不通过通用 PageTool 或提示词放行。
 
-adapter 既要按业务策略收窄模型可见的 PageTool action schema，也要在执行前校验最新观察、ref 和稳定 target；工具名不能作为 PageTool action。目标版本支持时启用工具调用后的遮罩清理。命中已验证版本范围时可适配 `assets/webmcp-next-0.4.x-tinyrobot-0.5.2/pagetool/` 中的通用模板，业务 target policy 必须来自目标项目，不能写入通用资产。
+adapter 既要按业务策略收窄模型可见的 PageTool action schema，也要在执行前校验最新观察、ref 和稳定 target；工具名不能作为 PageTool action。目标版本支持时启用工具调用后的遮罩清理；除非用户明确要求隐藏操作光标，否则使用仅在操作期间展示的 `actionOnly`，不要改成 `never`。命中已验证精确版本时可适配 `assets/webmcp-next-0.4.11-tinyrobot-0.5.2-alpha.15/pagetool/` 中的通用模板，业务 target policy 必须来自目标项目，不能写入通用资产。
+
+一条消息需要 PageTool 导航后继续调用目标页面工具时，将页面就绪条件作为项目配置传给 adapter：PageTool 导航动作执行后等待目标路由所需 descriptor 全部注册，再返回工具结果；下一次模型请求通过第三阶段接入的动态工具刷新取得新工具。PageTool 保持应用级注册，业务工具继续遵循页面生命周期，两者不能通过迁移作用域来互相替代。
+
+PageTool 只补足业务工具尚未覆盖的页面观察或交互。专用业务工具结果已经足以完成用户目标时，生成的业务 Skill 应要求模型直接回答；只有结果不足、工具报告失败，或用户明确要求额外检查页面时，才继续调用 PageTool。
 
 ## 配置与密钥
 
@@ -84,8 +88,10 @@ adapter 既要按业务策略收窄模型可见的 PageTool action schema，也�
 默认验证范围：
 
 - 依赖、lockfile、公开导出和真实挂载链；
-- 与本次阶段有关的解析、请求路由、adapter、Skill 加载和动作策略测试；
+- 按项目已有测试入口或临时检查，验证与本阶段有关的解析、请求路由、adapter、Skill 加载和动作策略；
 - 项目已有的类型检查与生产构建。
+
+Skill 只规定要验证的生产行为，不向目标项目复制测试模板。为定位或验收临时新增的测试、fixture 和诊断代码在完成前删除；只有目标项目本身需要长期保护的重要回归，才按其测试规范保留。
 
 第二、三阶段修改 runtime 接线后，默认复用已有本地服务，或启动 Agent 自己可清理的开发服务，完成不发送模型消息的挂载检查：
 

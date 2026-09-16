@@ -6,7 +6,7 @@ import type {
 } from '@opentiny/tiny-robot-chat'
 import { sseStreamToGenerator, type ChatCompletion, type ResponseProvider } from '@opentiny/tiny-robot-kit'
 import { computed, reactive, ref } from 'vue'
-import { resolveChatAuthorizationKey, resolveChatRequestTarget } from './request-routing.ts'
+import { resolveChatAuthorizationKey, resolveChatRequestTarget } from './request-routing'
 
 const BUILT_IN_FEATURES = ['thinking', 'search'] as const satisfies readonly ChatBuiltInModelFeature[]
 
@@ -41,15 +41,11 @@ const PROVIDER_DEFAULTS: Record<
   },
 }
 
-interface ResolvedModel {
-  id: string
-  label: string
-  capabilities?: Readonly<Partial<Record<ChatBuiltInModelFeature, boolean>>>
+type ResolvedModel = ChatProviderConfig['models'][number] & {
   apiUrl: string
   apiKey?: string
   headers?: Record<string, string>
   timeout?: number
-  featureBody?: Partial<Record<ChatBuiltInModelFeature, ChatProviderFeatureBody>>
 }
 
 export interface CreateChatProviderRuntimeOptions {
@@ -57,8 +53,8 @@ export interface CreateChatProviderRuntimeOptions {
   isGenuiEnabled: () => boolean
   genuiUrl?: string
   genuiPromptId?: string
-  genuiApiKey?: string
   fetchImpl?: typeof fetch
+  getSkillInstructions?: () => string
 }
 
 export interface ChatProviderRuntime {
@@ -72,21 +68,19 @@ function resolveModels(providers: readonly ChatProviderConfig[]): ResolvedModel[
   return providers.flatMap((provider) => {
     const defaults = PROVIDER_DEFAULTS[provider.type]
 
-    return provider.models.map((model) => {
-      if (ids.has(model.id)) throw new Error(`Duplicate model id: ${model.id}`)
-      ids.add(model.id)
+    return provider.models.map((candidate) => {
+      if (ids.has(candidate.id)) throw new Error(`Duplicate model id: ${candidate.id}`)
+      ids.add(candidate.id)
 
       return {
-        id: model.id,
-        label: model.label,
-        capabilities: model.capabilities,
+        ...candidate,
         apiUrl: provider.apiUrl ?? defaults.apiUrl,
         apiKey: provider.apiKey,
         headers: provider.headers,
         timeout: provider.timeout,
         featureBody: {
           ...defaults.featureBody,
-          ...model.featureBody,
+          ...candidate.featureBody,
         },
       }
     })
@@ -97,15 +91,12 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
   const models = resolveModels(options.modelProviders)
   const selectedId = ref<string | null>(models[0]?.id ?? null)
   const featureState = reactive<Partial<Record<ChatBuiltInModelFeature, boolean>>>({})
+  const reasoningEffort = ref<string | null>(null)
   const selectedModel = computed(() => models.find((model) => model.id === selectedId.value))
 
   const model: ChatModelRuntime = {
     options: computed(() =>
-      models.map(({ id, label, capabilities }) => ({
-        id,
-        label,
-        capabilities,
-      })),
+      models.map(({ apiUrl: _, apiKey: __, headers: ___, timeout: ____, featureBody: _____, ...option }) => option),
     ),
     selectedId: computed(() => selectedId.value),
     features: computed(() =>
@@ -116,6 +107,14 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
         ]),
       ),
     ),
+    reasoning: computed(() => {
+      const activeModel = selectedModel.value
+      const enabled = Boolean(activeModel?.capabilities?.thinking && featureState.thinking)
+      const effort = activeModel?.efforts?.some((candidate) => candidate.value === reasoningEffort.value)
+        ? reasoningEffort.value ?? undefined
+        : undefined
+      return { enabled, effort }
+    }),
     select(id) {
       if (id !== null && !models.some((candidate) => candidate.id === id)) {
         throw new Error(`Unknown model: ${id}`)
@@ -125,12 +124,25 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
       for (const feature of BUILT_IN_FEATURES) {
         if (!selectedModel.value?.capabilities?.[feature]) featureState[feature] = false
       }
+      if (!selectedModel.value?.efforts?.some((candidate) => candidate.value === reasoningEffort.value)) {
+        reasoningEffort.value = null
+      }
     },
     setFeature(feature, enabled) {
       if (enabled && !selectedModel.value?.capabilities?.[feature]) {
         throw new Error(`Current model does not support ${feature}`)
       }
       featureState[feature] = enabled
+    },
+    setReasoningEffort(effort) {
+      if (effort === null) {
+        reasoningEffort.value = null
+        return
+      }
+      if (!selectedModel.value?.efforts?.some((candidate) => candidate.value === effort)) {
+        throw new Error(`Current model does not support reasoning effort: ${effort}`)
+      }
+      reasoningEffort.value = effort
     },
   }
 
@@ -147,7 +159,6 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
     })
     const authorizationKey = resolveChatAuthorizationKey({
       genuiEnabled,
-      genuiApiKey: options.genuiApiKey,
       modelApiKey: activeModel.apiKey,
     })
     const headers: Record<string, string> = {
@@ -164,11 +175,21 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
       model: target.modelId,
       stream: true,
     }
+    const skillInstructions = options.getSkillInstructions?.().trim()
+    if (skillInstructions) {
+      const messages = Array.isArray(body.messages) ? body.messages : []
+      body.messages = [{ role: 'system', content: skillInstructions }, ...messages]
+    }
 
     for (const feature of BUILT_IN_FEATURES) {
       const featureBody = activeModel.featureBody?.[feature]
-      const value = featureState[feature] ? featureBody?.enabled : featureBody?.disabled
+      const enabled = feature === 'thinking' ? model.reasoning?.value.enabled : model.features.value[feature]
+      const value = enabled ? featureBody?.enabled : featureBody?.disabled
       if (value) Object.assign(body, value)
+    }
+    const effort = model.reasoning?.value.effort
+    if (model.reasoning?.value.enabled && effort && activeModel.effortParam) {
+      body[activeModel.effortParam] = effort
     }
 
     if (genuiEnabled) {
@@ -188,7 +209,7 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
 
     const timeoutController = activeModel.timeout === undefined ? null : new AbortController()
     const timeoutId = timeoutController
-      ? window.setTimeout(
+      ? globalThis.setTimeout(
           () => timeoutController.abort(new Error(`Provider request timed out after ${activeModel.timeout}ms.`)),
           activeModel.timeout,
         )
@@ -209,11 +230,11 @@ export function createChatProviderRuntime(options: CreateChatProviderRuntimeOpti
         try {
           yield* sseStreamToGenerator<ChatCompletion>(response, { signal })
         } finally {
-          if (timeoutId !== undefined) window.clearTimeout(timeoutId)
+          if (timeoutId !== undefined) globalThis.clearTimeout(timeoutId)
         }
       })()
     } catch (error) {
-      if (timeoutId !== undefined) window.clearTimeout(timeoutId)
+      if (timeoutId !== undefined) globalThis.clearTimeout(timeoutId)
       throw error
     }
   }

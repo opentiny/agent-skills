@@ -3,6 +3,7 @@ export const PAGE_TOOL_ACTIONS = [
   'searchTree',
   'click',
   'scroll',
+  'hover',
   'fill',
   'select',
   'executeJavascript',
@@ -41,6 +42,7 @@ const ACTION_CATEGORY_MAP: Readonly<Record<PageToolAction, PageToolActionCategor
   searchTree: 'query',
   click: 'navigation',
   scroll: 'navigation',
+  hover: 'navigation',
   fill: 'form',
   select: 'form',
   executeJavascript: 'sideEffect',
@@ -51,7 +53,13 @@ function isPageToolAction(action: unknown): action is PageToolAction {
 }
 
 function isTargetAction(action: PageToolAction): action is PageToolTargetAction {
-  return action === 'click' || action === 'scroll' || action === 'fill' || action === 'select'
+  return (
+    action === 'click' ||
+    action === 'scroll' ||
+    action === 'hover' ||
+    action === 'fill' ||
+    action === 'select'
+  )
 }
 
 export function getModelVisiblePageToolActions(policy: PageToolPolicy): PageToolAction[] {

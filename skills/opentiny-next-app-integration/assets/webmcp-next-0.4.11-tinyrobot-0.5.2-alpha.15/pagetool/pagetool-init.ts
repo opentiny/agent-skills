@@ -1,7 +1,7 @@
 import {
   initializeBuiltinWebMCP,
   registerPageAgentTool,
-  setNavigator,
+  type PageAgentCursorMode,
 } from '@opentiny/next-sdk'
 
 export const DEFAULT_PAGETOOL_BLACKLIST = [
@@ -13,11 +13,11 @@ export const DEFAULT_PAGETOOL_BLACKLIST = [
 ] as const
 
 export interface InitializePageToolOptions {
-  navigator?: (route: string) => void | boolean | Promise<void | boolean>
   blacklist?: readonly string[]
   whitelist?: readonly string[]
   exposedAttributes?: readonly string[]
   enableHighlight?: boolean
+  cursorMode?: PageAgentCursorMode
 }
 
 let initialized = false
@@ -30,6 +30,7 @@ export function initializePageTool(options: InitializePageToolOptions = {}): voi
   registerPageAgentTool({
     enableHighlight: options.enableHighlight ?? false,
     removeMaskAfterToolCall: true,
+    cursorMode: options.cursorMode ?? 'actionOnly',
     a11yConfig: {
       blacklist: [...DEFAULT_PAGETOOL_BLACKLIST, ...(options.blacklist ?? [])],
       whitelist: [...(options.whitelist ?? [])],
@@ -41,5 +42,4 @@ export function initializePageTool(options: InitializePageToolOptions = {}): voi
     },
   })
 
-  if (options.navigator) setNavigator(options.navigator)
 }
