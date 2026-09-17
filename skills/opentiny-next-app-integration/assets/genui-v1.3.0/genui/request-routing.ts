@@ -1,6 +1,6 @@
 export interface ChatRequestTargetOptions {
   modelId: string
-  modelUrl: string
+  modelUrl?: string
   genuiEnabled: boolean
   genuiUrl?: string
 }
@@ -8,7 +8,6 @@ export interface ChatRequestTargetOptions {
 export interface ChatAuthorizationKeyOptions {
   genuiEnabled: boolean
   modelApiKey?: string
-  genuiApiKey?: string
 }
 
 export function normalizeChatCompletionsUrl(url: string): string {
@@ -30,5 +29,5 @@ export function resolveChatRequestTarget(options: ChatRequestTargetOptions): { m
 }
 
 export function resolveChatAuthorizationKey(options: ChatAuthorizationKeyOptions): string | undefined {
-  return options.genuiEnabled ? options.genuiApiKey?.trim() || undefined : options.modelApiKey?.trim() || undefined
+  return options.genuiEnabled ? undefined : options.modelApiKey?.trim() || undefined
 }

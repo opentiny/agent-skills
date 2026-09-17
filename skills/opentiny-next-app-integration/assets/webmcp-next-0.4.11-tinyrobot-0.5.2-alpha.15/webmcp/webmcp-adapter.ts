@@ -15,6 +15,7 @@ import {
   describePageToolPolicy,
   restrictPageToolInputSchema,
   validatePageToolAction,
+  type PageToolAction,
   type PageToolPolicy,
   type PageToolTarget,
 } from '../pagetool/action-policy.ts'
@@ -26,6 +27,11 @@ const PAGE_TOOL_QUERY_ACTIONS = ['browserState', 'searchTree'] as const
 export interface PageToolAdapterOptions {
   policy: PageToolPolicy
   toolName?: string
+  afterAction?: (context: {
+    action: PageToolAction
+    target?: PageToolTarget
+    result: unknown
+  }) => Promise<void> | void
 }
 
 export interface CreateWebMcpAdapterOptions {
@@ -189,18 +195,22 @@ export function createWebMcpAdapter(options: CreateWebMcpAdapterOptions = {}): W
     },
     async callTool(serverId, toolName, args) {
       assertServerId(serverId)
+      let pageToolAction: PageToolAction | undefined
+      let pageToolTarget: PageToolTarget | undefined
       if (isConfiguredPageTool(toolName)) {
+        pageToolTarget = resolvePageToolTarget(args.index)
         const policyResult = validatePageToolAction(
           args,
           {
             hasFreshObservation: hasFreshPageToolObservation,
-            target: resolvePageToolTarget(args.index),
+            target: pageToolTarget,
           },
           options.pageTool!.policy,
         )
         if (!policyResult.allowed) {
           throw new Error(`PageTool action rejected: ${policyResult.reason}`)
         }
+        pageToolAction = args.action as PageToolAction
       }
       const modelContext = getModelContext()
       if (!modelContext) {
@@ -221,6 +231,14 @@ export function createWebMcpAdapter(options: CreateWebMcpAdapterOptions = {}): W
       } else {
         observedPageToolRefs.clear()
         hasFreshPageToolObservation = false
+      }
+
+      if (pageToolAction) {
+        await options.pageTool?.afterAction?.({
+          action: pageToolAction,
+          target: pageToolTarget,
+          result,
+        })
       }
 
       return result

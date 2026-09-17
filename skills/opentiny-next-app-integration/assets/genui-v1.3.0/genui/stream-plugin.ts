@@ -1,5 +1,6 @@
+import type { ChatMessageContent } from '@opentiny/tiny-robot'
 import type { ChatMessage, UseMessagePlugin } from '@opentiny/tiny-robot-kit'
-import { createGenuiStreamParser } from './stream-parser.ts'
+import { createGenuiStreamParser } from './stream-parser'
 
 export interface GenuiTextPart {
   type: 'text'
@@ -72,4 +73,9 @@ export function createGenuiSchemaStreamPlugin(isEnabled: () => boolean): UseMess
       activeMessage = null
     },
   }
+}
+
+export function resolveGenuiContent(message: { content: string; state?: Record<string, unknown> }): ChatMessageContent {
+  const parts = message.state?.genuiContent
+  return Array.isArray(parts) && parts.length > 0 ? parts : message.content
 }
