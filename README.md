@@ -98,7 +98,7 @@ claude plugin install tiny-vue-skill@opentiny-skills
 - `references/docs/`（包括 `.snapshot.json`）
 - `examples/demos/`
 
-`SKILL.md`、`references/` 下除 `references/docs/` 外的决策文档、`agents/` 和 `.claude-plugin/` 是手工维护内容。同步器只重建生成区，不覆盖这些文件。
+`SKILL.md`、`install-config.json`、`references/` 下除 `references/docs/` 外的决策文档、`agents/` 和 `.claude-plugin/` 是手工维护内容。同步器只重建生成区，不覆盖这些文件。
 
 本地同步前先检出 TinyRobot 源码并取得目标提交 SHA，然后在本仓库执行：
 

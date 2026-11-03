@@ -11,6 +11,8 @@ metadata:
 
 Help application developers use TinyRobot without guessing package ownership or public APIs. The bundled snapshot targets `release/v1.0.x`; consumer-project evidence still takes precedence.
 
+Before recommending or running a TinyRobot installation, read `distTag` from [install-config.json](install-config.json), the single source for the default npm channel. Form each requested package as `<package>@<distTag>` and output concrete commands with that value substituted. See [setup.md](references/setup.md#installation-channel) for recipes. A user-requested version takes precedence; existing dependencies are not automatically upgraded.
+
 ## Start with the consumer project
 
 Before recommending imports or generating version-sensitive code:
@@ -18,7 +20,7 @@ Before recommending imports or generating version-sensitive code:
 1. Inspect `package.json`, the lockfile, and installed package metadata when available.
 2. Identify the TinyRobot packages required by this task, then record which are installed and their resolved versions.
 3. If a required package is absent, say which dependency must be added. Never claim it is already installed.
-4. If required TinyRobot package versions differ, or do not match the `1.0.x` snapshot, stop target-version-sensitive generation and follow [versioning.md](references/versioning.md). For an explicit migration, still analyze the source version and map it to the 1.0 target before target dependencies are changed.
+4. Check required packages against their published dependency/peer ranges and the supported 1.0 stable or RC line; exact version equality is not the compatibility test. If compatibility is unresolved, stop target-version-sensitive generation and follow [versioning.md](references/versioning.md). For an explicit migration, still analyze the source version and map it to the 1.0 target before target dependencies are changed.
 
 ## Choose the highest useful layer
 
