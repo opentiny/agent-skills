@@ -1,0 +1,4 @@
+interface:
+  display_name: "TinyRobot Application Development"
+  short_description: "Build TinyRobot 1.0 applications with the right layer"
+  default_prompt: "Use $tiny-robot-skill to select and implement the appropriate TinyRobot 1.0 layer for this application."

@@ -1,59 +1,67 @@
 name: Sync TinyRobot docs into skills
 
 on:
-  # 仅支持手动触发（Actions 页面 Run workflow）
   workflow_dispatch:
+    inputs:
+      source_ref:
+        description: TinyRobot branch, tag, or commit to snapshot
+        required: true
+        default: release/v1.0.x
+        type: string
 
 permissions:
   contents: read
 
 jobs:
-  copy-folders:
+  sync-snapshot:
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: '10'
 
-      # 检出当前仓库（agent-skills），用于后续写入并推送
       - name: Checkout current repo
         uses: actions/checkout@v4
         with:
           path: current-repo
           token: ${{ secrets.MY_GITHUB_PUSH_TOKEN }}
 
-      # 检出 TinyRobot 仓库 develop 分支，作为文档来源
-      - name: Checkout TinyRobot repo
+      - name: Checkout TinyRobot source
         uses: actions/checkout@v4
         with:
           repository: opentiny/tiny-robot
           path: tinyrobot-repo
-          ref: develop
+          ref: ${{ inputs.source_ref }}
           token: ${{ secrets.MY_GITHUB_PUSH_TOKEN }}
 
-      # 用 TinyRobot 文档覆盖 skill 内的 src、demos 等目录
-      - name: Copy from TinyRobot docs
-        run: |
-          rm -rf current-repo/skills/tiny-robot-skill/demos && cp -r tinyrobot-repo/docs/demos/. current-repo/skills/tiny-robot-skill/demos
-          for dir in components examples guide migration tools; do
-            rm -rf "current-repo/skills/tiny-robot-skill/${dir}"
-            cp -r "tinyrobot-repo/docs/src/${dir}" "current-repo/skills/tiny-robot-skill/${dir}"
-          done
+      - name: Record TinyRobot source commit
+        id: tinyrobot-source
+        working-directory: tinyrobot-repo
+        run: echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
-      # 执行后处理脚本（如清理 demo 中不需要的文件、格式化等）
-      - name: Run post-process
-        run: |
-          cd current-repo/scripts
-          pnpm i
-          pnpm tiny-robot-skill-post-process
+      - name: Install sync tooling
+        working-directory: current-repo/scripts
+        run: pnpm install --frozen-lockfile
 
-      # 若有变更则提交并推送到当前仓库
+      - name: Generate TinyRobot skill snapshot
+        working-directory: current-repo/scripts
+        run: >-
+          pnpm tiny-robot-skill-sync --
+          --source-root "$GITHUB_WORKSPACE/tinyrobot-repo"
+          --skill-root "$GITHUB_WORKSPACE/current-repo/skills/tiny-robot-skill"
+          --source-ref "${{ inputs.source_ref }}"
+          --source-commit "${{ steps.tinyrobot-source.outputs.commit }}"
+
+      - name: Validate TinyRobot skill
+        working-directory: current-repo/scripts
+        run: pnpm validate:tiny-robot-skill
+
       - name: Commit and push
+        working-directory: current-repo
         run: |
-          cd current-repo
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
+          git add skills/tiny-robot-skill
           git diff --quiet && git diff --staged --quiet || (git commit -m "Sync TinyRobot docs to tiny-robot-skill" && git push)

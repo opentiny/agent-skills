@@ -1,0 +1,72 @@
+[
+  {
+    "id": "complete-chat-app",
+    "prompt": "这是一个 Vue 3 项目，我要从零实现一个包含会话列表、消息区、输入区、模型切换和 MCP 的完整 AI 聊天页面，请用 TinyRobot 1.0 实现。",
+    "expectedRoutes": ["@opentiny/tiny-robot-chat", "Chat 套件", "suites/quick-start"],
+    "forbiddenClaims": ["必须手工组合 Bubble 和 Sender", "Container 是首选布局"],
+    "evidence": ["references/product-model.md", "references/selection.md", "references/docs/suites/quick-start.md"]
+  },
+  {
+    "id": "custom-sender",
+    "prompt": "现有项目已经有自己的聊天页面，只想用 TinyRobot 1.0 做一个支持附件、建议词和自定义操作按钮的输入区。",
+    "expectedRoutes": ["@opentiny/tiny-robot", "Sender", "components/sender"],
+    "forbiddenClaims": ["必须改用完整 TrChat", "useConversation 负责渲染输入框"],
+    "evidence": ["component-index.json", "references/docs/components/sender.md"]
+  },
+  {
+    "id": "conversation-persistence",
+    "prompt": "我不需要 TinyRobot 的现成 UI，只需要在 Vue 应用里管理多会话、消息流和 IndexedDB 持久化，应该用哪一层？",
+    "expectedRoutes": ["@opentiny/tiny-robot-kit", "useConversation", "tools/conversation"],
+    "forbiddenClaims": ["使用 Bubble 保存会话", "使用 History 组件持久化消息"],
+    "evidence": ["references/product-model.md", "references/docs/tools/conversation.md"]
+  },
+  {
+    "id": "extension-management",
+    "prompt": "在 TinyRobot 1.0 聊天应用中做统一的 MCP 和 Skill 扩展浏览、安装、启停与详情查看，应该选哪些能力？",
+    "expectedRoutes": ["ExtensionManager", "MCP", "Skill", "best-practices/extension-manager-integration"],
+    "forbiddenClaims": ["McpServerPicker 是 1.0 新项目首选", "表单组件会自动持久化所有扩展"],
+    "evidence": ["references/docs/components/extension-manager.md", "references/docs/best-practices/extension-manager-integration.md"]
+  },
+  {
+    "id": "migrate-v05-to-v1",
+    "prompt": "项目从 TinyRobot 0.5.1 升级到 1.0，现有代码使用 Container 和 McpServerPicker，请给出迁移方向。",
+    "expectedRoutes": ["migration", "Container", "Layout", "McpServerPicker", "ExtensionManager"],
+    "forbiddenClaims": ["无需迁移", "Container 是 1.0 推荐入口", "McpServerPicker 是 1.0 推荐入口"],
+    "evidence": ["references/docs/migration/v1.0/container.md", "references/docs/migration/v1.0/mcp-server-picker.md"]
+  },
+  {
+    "id": "unknown-prop",
+    "prompt": "TinyRobot 1.0 的 TrModelSelector 是否有 autoSelectLatestModel 属性？请给出类型和示例。",
+    "expectedRoutes": ["ModelSelector", "公开类型", "无法确认"],
+    "forbiddenClaims": ["autoSelectLatestModel: boolean", "该属性默认为 true"],
+    "evidence": ["component-index.json", "references/docs/components/model-selector.md", "installed type declarations"]
+  },
+  {
+    "id": "unrelated-ui",
+    "prompt": "给这个普通 Vue 3 后台页面增加一个用户资料卡片，不使用任何聊天或 TinyRobot 能力。",
+    "expectedRoutes": ["do-not-activate"],
+    "forbiddenClaims": ["应使用 TinyRobot", "安装 @opentiny/tiny-robot"],
+    "evidence": ["SKILL.md description boundary"]
+  },
+  {
+    "id": "components-only-installation",
+    "prompt": "项目目前只安装了 @opentiny/tiny-robot@1.0.x。现在要新增完整聊天页，但暂时没有 @opentiny/tiny-robot-chat，应该如何处理？",
+    "expectedRoutes": ["检测依赖", "建议添加 @opentiny/tiny-robot-chat", "不得声称已安装"],
+    "forbiddenClaims": ["项目已经可以直接导入 TrChat", "TrChat 从 @opentiny/tiny-robot 导出"],
+    "evidence": ["references/setup.md", "references/product-model.md"]
+  },
+  {
+    "id": "mixed-package-versions",
+    "prompt": "项目安装了 @opentiny/tiny-robot@1.0.x、@opentiny/tiny-robot-chat@0.5.1 和 @opentiny/tiny-robot-kit@1.0.x，想直接生成聊天页代码。",
+    "expectedRoutes": ["版本不一致", "兼容性检查", "先对齐版本"],
+    "forbiddenClaims": ["这些版本可以无条件混用", "直接生成版本敏感代码"],
+    "evidence": ["references/versioning.md", "consumer package.json", "installed package metadata"]
+  },
+  {
+    "id": "undocumented-export",
+    "prompt": "我在 @opentiny/tiny-robot 包根导出里看到了 TrIconButton，但正式组件文档导航里没有它；能否把它作为应用通用按钮主动推荐？",
+    "expectedRoutes": ["未正式文档化", "支持状态未确认", "仅按明确询问核验"],
+    "forbiddenClaims": ["TrIconButton 是稳定推荐组件", "应在所有应用中优先使用"],
+    "evidence": ["component-index.json", "package-root exports", "references/review.md"]
+  }
+]

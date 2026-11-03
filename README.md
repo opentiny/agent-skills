@@ -88,6 +88,34 @@ claude plugin install tiny-vue-skill@opentiny-skills
 
 随着TinyVue的不断开发，此仓库的Skill资源肯定会落后于主仓库。需要同步时，手工执行一下”同步TinyVue仓库“的Github Action即可！
 
+## 维护 TinyRobot 1.0 Skill
+
+`skills/tiny-robot-skill` 只服务使用 TinyRobot 构建应用的开发者，知识快照默认来自 TinyRobot 的 `release/v1.0.x`。
+
+以下内容由同步器生成，不应手工编辑：
+
+- `component-index.json`
+- `references/docs/`（包括 `.snapshot.json`）
+- `examples/demos/`
+
+`SKILL.md`、`install-config.json`、`references/` 下除 `references/docs/` 外的决策文档、`agents/` 和 `.claude-plugin/` 是手工维护内容。同步器只重建生成区，不覆盖这些文件。
+
+本地同步前先检出 TinyRobot 源码并取得目标提交 SHA，然后在本仓库执行：
+
+```bash
+pnpm --dir scripts install --frozen-lockfile
+pnpm --dir scripts tiny-robot-skill-sync -- \
+  --source-root ../../tiny-robot \
+  --skill-root ../skills/tiny-robot-skill \
+  --source-ref release/v1.0.x \
+  --source-commit <tiny-robot-commit>
+pnpm --dir scripts validate:tiny-robot-skill
+```
+
+GitHub Actions 中的 `Sync TinyRobot docs into skills` 支持通过 `source_ref` 选择分支、标签或提交；工作流会记录实际提交、生成快照、完整校验后再提交。
+
+版本职责彼此独立：Skill 发布版本由 `SKILL.md`、插件和市场元数据共同维护；TinyRobot 兼容范围与源提交记录在 `component-index.json` 和 `.snapshot.json`；应用实际可用 API 以消费项目的安装版本和公开类型声明为准。
+
 ## 如何添加新的 Skill
 
 本仓库采用 Claude Code Plugin Marketplace 规范结构，添加新技能需要以下步骤：

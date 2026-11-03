@@ -1,0 +1,1520 @@
+{
+  "schemaVersion": 1,
+  "tinyRobotVersion": "1.0.x",
+  "source": {
+    "ref": "release/v1.0.x",
+    "commit": "97dc55e62c0dbe3e34d1d4c6b54bb7acffc23b21"
+  },
+  "entries": [
+    {
+      "id": "best-practice-extension-manager-integration",
+      "names": [
+        "在应用中管理 MCP 与 Skill 扩展",
+        "best-practice-extension-manager-integration"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "best-practice",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "在应用中管理 MCP 与 Skill 扩展",
+        "完整示例",
+        "替换目录和存储"
+      ],
+      "doc": "references/docs/best-practices/extension-manager-integration.md",
+      "demos": [
+        "examples/demos/best-practices/extension-manager-integration/ExtensionAddIcon.vue",
+        "examples/demos/best-practices/extension-manager-integration/ExtensionAddMenu.vue",
+        "examples/demos/best-practices/extension-manager-integration/catalog.ts",
+        "examples/demos/best-practices/extension-manager-integration/extension-catalog-repository.ts",
+        "examples/demos/best-practices/extension-manager-integration/skill-options-storage.ts",
+        "examples/demos/best-practices/extension-manager-integration/integrated.vue",
+        "examples/demos/best-practices/extension-manager-integration/mock-api.ts",
+        "examples/demos/best-practices/extension-manager-integration/use-extension-catalog.ts",
+        "examples/demos/best-practices/extension-manager-integration/use-extension-dialog.ts"
+      ]
+    },
+    {
+      "id": "anchor",
+      "names": [
+        "Anchor 锚点",
+        "anchor",
+        "TrAnchor",
+        "锚点"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "长消息导航",
+        "消息搜索",
+        "内容定位"
+      ],
+      "doc": "references/docs/components/anchor.md",
+      "demos": [
+        "examples/demos/anchor/basic-source.messages.ts",
+        "examples/demos/anchor/basic-source.vue",
+        "examples/demos/anchor/demo-shell.css",
+        "examples/demos/anchor/controlled-search.messages.ts",
+        "examples/demos/anchor/controlled-search.vue"
+      ],
+      "exports": [
+        "TrAnchor"
+      ]
+    },
+    {
+      "id": "attachments",
+      "names": [
+        "Attachments 附件卡片",
+        "attachments",
+        "TrAttachments"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Attachments 附件卡片",
+        "代码示例",
+        "基本特性",
+        "展示形式（variant）",
+        "文件状态",
+        "列表换行",
+        "预览和下载",
+        "自定义操作按钮 (actions)",
+        "自定义图标 (fileIcons)",
+        "自定义文件类型 (fileMatchers)",
+        "Props",
+        "Events",
+        "Types",
+        "内置附件类型"
+      ],
+      "doc": "references/docs/components/attachments.md",
+      "demos": [
+        "examples/demos/attachments/basic.vue",
+        "examples/demos/attachments/custom-file-type.vue",
+        "examples/demos/attachments/custom-icon.vue",
+        "examples/demos/attachments/download.vue",
+        "examples/demos/attachments/picture-list.vue",
+        "examples/demos/attachments/status.vue",
+        "examples/demos/attachments/wrap.vue"
+      ],
+      "exports": [
+        "TrAttachments"
+      ]
+    },
+    {
+      "id": "bubble",
+      "names": [
+        "Bubble 气泡组件",
+        "bubble",
+        "TrBubble",
+        "BubbleList",
+        "BubbleProvider",
+        "消息气泡"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "消息列表",
+        "流式消息",
+        "Markdown",
+        "工具调用",
+        "自定义渲染器"
+      ],
+      "doc": "references/docs/components/bubble.md",
+      "demos": [
+        "examples/demos/bubble/RecursiveReasoningRenderer.vue",
+        "examples/demos/bubble/avatar-and-placement.vue",
+        "examples/demos/bubble/basic.vue",
+        "examples/demos/bubble/content-render-mode.vue",
+        "examples/demos/bubble/content-resolver.vue",
+        "examples/demos/bubble/custom-composite-renderer.vue",
+        "examples/demos/bubble/custom-renderer.vue",
+        "examples/demos/bubble/error.vue",
+        "examples/demos/bubble/image.vue",
+        "examples/demos/bubble/list-array-content.vue",
+        "examples/demos/bubble/list-auto-scroll.vue",
+        "examples/demos/bubble/list-consecutive.vue",
+        "examples/demos/bubble/list-custom-group.vue",
+        "examples/demos/bubble/list-hidden.vue",
+        "examples/demos/bubble/list.vue",
+        "examples/demos/bubble/loading.vue",
+        "examples/demos/bubble/markdown.vue",
+        "examples/demos/bubble/provider-attributes.vue",
+        "examples/demos/bubble/provider-renderer.vue",
+        "examples/demos/bubble/reasoning.vue",
+        "examples/demos/bubble/schema-card.ce.vue",
+        "examples/demos/bubble/schema-render.vue",
+        "examples/demos/bubble/shape.vue",
+        "examples/demos/bubble/slots.vue",
+        "examples/demos/bubble/state-change.vue",
+        "examples/demos/bubble/streaming.vue",
+        "examples/demos/bubble/tool-approval.vue",
+        "examples/demos/bubble/tools.vue"
+      ],
+      "exports": [
+        "TrBubble",
+        "TrBubbleList",
+        "TrBubbleProvider"
+      ]
+    },
+    {
+      "id": "container",
+      "names": [
+        "Container 容器",
+        "container",
+        "TrContainer",
+        "容器"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "deprecated",
+      "proactive": true,
+      "scenes": [
+        "旧版聊天容器",
+        "从 0.5.1 迁移"
+      ],
+      "doc": "references/docs/components/container.md",
+      "demos": [
+        "examples/demos/container/basic.vue"
+      ],
+      "exports": [
+        "TrContainer"
+      ],
+      "replacedBy": [
+        "layout"
+      ]
+    },
+    {
+      "id": "drag-overlay",
+      "names": [
+        "DragOverlay 拖拽浮层",
+        "drag-overlay",
+        "DragOverlay",
+        "TrDragOverlay"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "DragOverlay 拖拽浮层",
+        "代码示例",
+        "基本用法",
+        "自定义拖拽层",
+        "状态禁用",
+        "Attributes",
+        "Props",
+        "Slots",
+        "Types",
+        "CSS 变量"
+      ],
+      "doc": "references/docs/components/drag-overlay.md",
+      "demos": [
+        "examples/demos/drag-overlay/basic.vue",
+        "examples/demos/drag-overlay/custom-overlay.vue",
+        "examples/demos/drag-overlay/disabled.vue"
+      ],
+      "exports": [
+        "TrDragOverlay"
+      ]
+    },
+    {
+      "id": "dropdown-menu",
+      "names": [
+        "DropdownMenu 下拉菜单",
+        "dropdown-menu",
+        "DropdownMenu",
+        "TrDropdownMenu"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "DropdownMenu 下拉菜单",
+        "代码示例",
+        "基本示例",
+        "Props",
+        "Slots",
+        "Events",
+        "Types",
+        "CSS 变量"
+      ],
+      "doc": "references/docs/components/dropdown-menu.md",
+      "demos": [
+        "examples/demos/dropdown-menu/basic.vue"
+      ],
+      "exports": [
+        "TrDropdownMenu"
+      ]
+    },
+    {
+      "id": "extension-manager",
+      "names": [
+        "ExtensionManager 扩展管理组件",
+        "extension-manager",
+        "ExtensionManager",
+        "TrExtensionManager",
+        "扩展管理"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "MCP 扩展",
+        "Skill 扩展",
+        "安装状态",
+        "扩展浏览",
+        "扩展启停"
+      ],
+      "doc": "references/docs/components/extension-manager.md",
+      "demos": [
+        "examples/demos/extension-manager/basic.vue",
+        "examples/demos/extension-manager/browse-and-filter.vue",
+        "examples/demos/extension-manager/card-and-grid.vue",
+        "examples/demos/extension-manager/controlled-events.vue",
+        "examples/demos/extension-manager/empty-states.vue",
+        "examples/demos/extension-manager/manager-slots.vue",
+        "examples/demos/extension-manager/progress.vue",
+        "examples/demos/extension-manager/responsive-layout.vue",
+        "examples/demos/extension-manager/single-tab-navigation.vue"
+      ],
+      "exports": [
+        "TrExtensionManager",
+        "TrExtensionCard",
+        "TrExtensionCardGrid"
+      ]
+    },
+    {
+      "id": "feedback",
+      "names": [
+        "Feedback 气泡反馈",
+        "feedback",
+        "TrFeedback"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Feedback 气泡反馈",
+        "代码示例",
+        "基本示例",
+        "控制显示数量",
+        "自定义动作图标",
+        "Props",
+        "Events"
+      ],
+      "doc": "references/docs/components/feedback.md",
+      "demos": [
+        "examples/demos/feedback/basic.vue",
+        "examples/demos/feedback/custom-action-icon.vue",
+        "examples/demos/feedback/limit.vue"
+      ],
+      "exports": [
+        "TrFeedback"
+      ]
+    },
+    {
+      "id": "history",
+      "names": [
+        "History",
+        "TrHistory"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "History",
+        "代码示例",
+        "基本示例",
+        "空状态",
+        "自定义菜单项",
+        "前置图标",
+        "插槽",
+        "Props",
+        "Slots",
+        "Events",
+        "Types",
+        "CSS 变量"
+      ],
+      "doc": "references/docs/components/history.md",
+      "demos": [
+        "examples/demos/history/basic.vue",
+        "examples/demos/history/custom-menu.vue",
+        "examples/demos/history/empty.vue",
+        "examples/demos/history/icon.vue",
+        "examples/demos/history/slot-item-prefix.vue",
+        "examples/demos/history/slot-item-title.vue"
+      ],
+      "exports": [
+        "TrHistory"
+      ]
+    },
+    {
+      "id": "layout",
+      "names": [
+        "Layout 布局",
+        "layout",
+        "TrLayout",
+        "布局"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "聊天页面布局",
+        "侧栏",
+        "浮层布局",
+        "可调整侧栏"
+      ],
+      "doc": "references/docs/components/layout.md",
+      "demos": [
+        "examples/demos/layout/aside-collapse-effect.vue",
+        "examples/demos/layout/aside-controlled.vue",
+        "examples/demos/layout/aside-modes.vue",
+        "examples/demos/layout/aside-resizable.vue",
+        "examples/demos/layout/aside-toggle.vue",
+        "examples/demos/layout/basic.vue",
+        "examples/demos/layout/floating-controlled.vue",
+        "examples/demos/layout/floating-panels.vue",
+        "examples/demos/layout/floating.vue",
+        "examples/demos/layout/main-scroll-bubble.vue",
+        "examples/demos/layout/main-scroll-div.vue",
+        "examples/demos/layout/main-scroll.vue",
+        "examples/demos/layout/mode.vue"
+      ],
+      "exports": [
+        "TrLayout",
+        "TrLayoutProxyScrollbar",
+        "TrLayoutAsideToggle"
+      ]
+    },
+    {
+      "id": "mcp-add-form",
+      "names": [
+        "McpAddForm 插件添加表单",
+        "mcp-add-form",
+        "McpAddForm",
+        "TrMcpAddForm",
+        "MCP 添加表单"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": false,
+      "scenes": [
+        "旧版 MCP 添加表单",
+        "MCP 配置"
+      ],
+      "doc": "references/docs/components/mcp-add-form.md",
+      "demos": [
+        "examples/demos/mcp-add-form/basic.vue"
+      ],
+      "exports": [
+        "TrMcpAddForm"
+      ]
+    },
+    {
+      "id": "mcp-extension",
+      "names": [
+        "MCP 扩展添加与详情",
+        "mcp-extension",
+        "McpExtension",
+        "TrMcpExtension",
+        "McpExtensionForm",
+        "McpExtensionDetail",
+        "MCP 扩展"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "MCP 导入",
+        "MCP 详情",
+        "工具启停",
+        "MCP 存储"
+      ],
+      "doc": "references/docs/components/mcp-extension.md",
+      "demos": [
+        "examples/demos/mcp-extension-detail/basic.vue",
+        "examples/demos/mcp-extension-form/basic.vue",
+        "examples/demos/mcp-extension-form/code-mode.vue"
+      ],
+      "exports": [
+        "TrMcpExtensionForm",
+        "TrMcpExtensionDetail",
+        "createMcpExtensionStorage",
+        "createMemoryMcpExtensionStorage"
+      ]
+    },
+    {
+      "id": "mcp-server-picker",
+      "names": [
+        "MCP Server Picker 插件选择器",
+        "mcp-server-picker",
+        "McpServerPicker",
+        "TrMcpServerPicker",
+        "插件选择器"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "deprecated",
+      "proactive": true,
+      "scenes": [
+        "旧版 MCP 插件选择",
+        "从 0.5.1 迁移"
+      ],
+      "doc": "references/docs/components/mcp-server-picker.md",
+      "demos": [
+        "examples/demos/mcp-server-picker/basic-usage.vue",
+        "examples/demos/mcp-server-picker/popup-config.vue"
+      ],
+      "exports": [
+        "TrMcpServerPicker"
+      ],
+      "replacedBy": [
+        "extension-manager"
+      ]
+    },
+    {
+      "id": "model-selector",
+      "names": [
+        "ModelSelector 模型选择器",
+        "model-selector",
+        "ModelSelector",
+        "TrModelSelector",
+        "模型选择器"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "模型切换",
+        "模型分组",
+        "推理强度"
+      ],
+      "doc": "references/docs/components/model-selector.md",
+      "demos": [
+        "examples/demos/model-selector/basic.vue",
+        "examples/demos/model-selector/icon-trigger.vue",
+        "examples/demos/model-selector/reasoning-effort.vue",
+        "examples/demos/model-selector/search-and-group.vue",
+        "examples/demos/model-selector/slots.vue",
+        "examples/demos/model-selector/variants.vue"
+      ],
+      "exports": [
+        "TrModelSelector"
+      ]
+    },
+    {
+      "id": "prompts",
+      "names": [
+        "Prompts 提示集组件",
+        "prompts",
+        "TrPrompts",
+        "Prompt",
+        "TrPrompt",
+        "提示集"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "推荐问题",
+        "提示词",
+        "快捷入口"
+      ],
+      "doc": "references/docs/components/prompts.md",
+      "demos": [
+        "examples/demos/prompts/badge.vue",
+        "examples/demos/prompts/basic.vue",
+        "examples/demos/prompts/disabled.vue",
+        "examples/demos/prompts/footer.vue",
+        "examples/demos/prompts/responsive.vue",
+        "examples/demos/prompts/size.vue",
+        "examples/demos/prompts/vertical.vue",
+        "examples/demos/prompts/wrap.vue"
+      ],
+      "exports": [
+        "TrPrompt",
+        "TrPrompts"
+      ]
+    },
+    {
+      "id": "sender",
+      "names": [
+        "Sender 消息输入框",
+        "sender",
+        "TrSender",
+        "消息输入框",
+        "输入区"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "消息输入",
+        "附件",
+        "建议词",
+        "语音",
+        "自定义操作按钮"
+      ],
+      "doc": "references/docs/components/sender.md",
+      "demos": [
+        "examples/demos/sender/actions-config-basic.vue",
+        "examples/demos/sender/actions-enhanced.vue",
+        "examples/demos/sender/mockSpeechHandler.ts",
+        "examples/demos/sender/attachments-in-sender.vue",
+        "examples/demos/sender/basic.vue",
+        "examples/demos/sender/custom-slots.vue",
+        "examples/demos/sender/input-prefix-placeholder.vue",
+        "examples/demos/sender/loading-state.vue",
+        "examples/demos/sender/mention.vue",
+        "examples/demos/sender/methods-demo.vue",
+        "examples/demos/sender/mode-switch.vue",
+        "examples/demos/sender/size.vue",
+        "examples/demos/sender/speechHandlers.ts",
+        "examples/demos/sender/submit-type.vue",
+        "examples/demos/sender/suggestion-basic.vue",
+        "examples/demos/sender/suggestion-filter.vue",
+        "examples/demos/sender/suggestion-highlight.vue",
+        "examples/demos/sender/template-editor.vue",
+        "examples/demos/sender/PressToTalkOverlay.vue",
+        "examples/demos/sender/voice-custom-ui.vue",
+        "examples/demos/sender/voice-custom.vue",
+        "examples/demos/sender/voice-input.vue",
+        "examples/demos/sender/word-limit.vue"
+      ],
+      "exports": [
+        "TrSender",
+        "TrActionButton",
+        "TrSubmitButton",
+        "TrClearButton",
+        "TrUploadButton",
+        "TrVoiceButton",
+        "TrWordCounter",
+        "TrDefaultActionButtons"
+      ]
+    },
+    {
+      "id": "sender-compat",
+      "names": [
+        "SenderCompat 文档",
+        "sender-compat",
+        "SenderCompat",
+        "TrSenderCompat",
+        "Sender 兼容入口"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "deprecated",
+      "proactive": false,
+      "scenes": [
+        "从 0.3.x 迁移",
+        "Sender 兼容期"
+      ],
+      "doc": "references/docs/components/sender-compat.md",
+      "demos": [],
+      "exports": [
+        "TrSenderCompat"
+      ],
+      "replacedBy": [
+        "sender"
+      ]
+    },
+    {
+      "id": "skill-extension",
+      "names": [
+        "Skill 扩展导入与详情",
+        "skill-extension",
+        "SkillExtension",
+        "TrSkillExtension",
+        "SkillImportForm",
+        "SkillExtensionDetail",
+        "Skill 扩展"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Skill 导入",
+        "Skill 详情",
+        "Skill 资源"
+      ],
+      "doc": "references/docs/components/skill-extension.md",
+      "demos": [
+        "examples/demos/skill-extension-detail/basic.vue",
+        "examples/demos/skill-import-form/basic.vue",
+        "examples/demos/skill-import-form/local-import.vue",
+        "examples/demos/skill-import-form/resolver-states.vue"
+      ],
+      "exports": [
+        "TrSkillImportForm",
+        "TrSkillExtensionDetail"
+      ]
+    },
+    {
+      "id": "suggestion-pills",
+      "names": [
+        "SuggestionPills 建议按钮组",
+        "suggestion-pills",
+        "SuggestionPills",
+        "TrSuggestionPills",
+        "SuggestionPillButton",
+        "建议按钮组"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "输入建议",
+        "快捷问题",
+        "按钮建议"
+      ],
+      "doc": "references/docs/components/suggestion-pills.md",
+      "demos": [
+        "examples/demos/suggestion/pills-popper.vue"
+      ],
+      "exports": [
+        "TrSuggestionPills",
+        "TrSuggestionPillButton"
+      ]
+    },
+    {
+      "id": "suggestion-popover",
+      "names": [
+        "SuggestionPopover 建议弹出框",
+        "suggestion-popover",
+        "SuggestionPopover",
+        "TrSuggestionPopover"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "SuggestionPopover 建议弹出框",
+        "代码示例",
+        "基本示例",
+        "触发方式",
+        "分组数据",
+        "自定义渲染列表项",
+        "加载中和空数据",
+        "其他插槽",
+        "移动端适配",
+        "Props",
+        "Slots",
+        "Events",
+        "Types"
+      ],
+      "doc": "references/docs/components/suggestion-popover.md",
+      "demos": [
+        "examples/demos/suggestion/popover-basic.vue",
+        "examples/demos/suggestion/popover-custom-item.vue",
+        "examples/demos/suggestion/popover-grouped.vue",
+        "examples/demos/suggestion/popover-other-status.vue",
+        "examples/demos/suggestion/popover-slots.vue",
+        "examples/demos/suggestion/popover-trigger.vue"
+      ],
+      "exports": [
+        "TrSuggestionPopover"
+      ]
+    },
+    {
+      "id": "theme",
+      "names": [
+        "Theme",
+        "TrTheme",
+        "ThemeProvider",
+        "TrThemeProvider",
+        "主题"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "主题",
+        "深色模式",
+        "颜色模式",
+        "主题存储"
+      ],
+      "doc": "references/docs/components/theme.md",
+      "demos": [
+        "examples/demos/theme-provider/ColorMode.vue",
+        "examples/demos/theme-provider/ColorModeComp.vue",
+        "examples/demos/theme-provider/NestedTheme.vue",
+        "examples/demos/theme-provider/ThemeComp.vue",
+        "examples/demos/theme-provider/Storage.vue",
+        "examples/demos/theme-provider/StorageComp.vue",
+        "examples/demos/theme-provider/Theme.vue"
+      ],
+      "exports": [
+        "TrThemeProvider",
+        "useTheme"
+      ]
+    },
+    {
+      "id": "welcome",
+      "names": [
+        "Welcome",
+        "TrWelcome"
+      ],
+      "package": "@opentiny/tiny-robot",
+      "kind": "component",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Welcome",
+        "代码示例",
+        "基本",
+        "对齐方向",
+        "底部内容",
+        "Props",
+        "Slots"
+      ],
+      "doc": "references/docs/components/welcome.md",
+      "demos": [
+        "examples/demos/welcome/align.vue",
+        "examples/demos/welcome/basic.vue",
+        "examples/demos/welcome/footer.vue"
+      ],
+      "exports": [
+        "TrWelcome"
+      ]
+    },
+    {
+      "id": "example-assistant",
+      "names": [
+        "综合示例",
+        "example-assistant"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "example",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "综合示例",
+        "直接嵌入页面",
+        "使用悬浮容器"
+      ],
+      "doc": "references/docs/examples/assistant.md",
+      "demos": [
+        "examples/demos/examples/AssistantContainerExample.vue",
+        "examples/demos/examples/assistantConstants.ts",
+        "examples/demos/examples/mockMcp.ts",
+        "examples/demos/examples/responseProvider.ts",
+        "examples/demos/examples/AssistantPageExample.vue"
+      ]
+    },
+    {
+      "id": "example-chat-deepseek",
+      "names": [
+        "example-chat-deepseek"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "example",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "example-chat-deepseek"
+      ],
+      "doc": "references/docs/examples/chat-deepseek.md",
+      "demos": [
+        "examples/demos/chat/ChatDemoShell.vue",
+        "examples/demos/chat/shared/base.css",
+        "examples/demos/chat/deepseek/DeepSeekCase.vue",
+        "examples/demos/chat/deepseek/DeepSeekHeader.vue",
+        "examples/demos/chat/deepseek/config.ts",
+        "examples/demos/chat/deepseek/icons/deepseek-mark.svg",
+        "examples/demos/chat/deepseek/icons/deepseek-wordmark.svg",
+        "examples/demos/chat/deepseek/icons/new-chat.svg",
+        "examples/demos/chat/deepseek/icons/search.svg",
+        "examples/demos/chat/deepseek/icons/sidebar-toggle.svg",
+        "examples/demos/chat/shared/createChatRuntime.ts",
+        "examples/demos/chat/shared/mockConversationStorage.ts",
+        "examples/demos/chat/shared/modelProviders.ts",
+        "examples/demos/chat/deepseek/Demo.vue"
+      ]
+    },
+    {
+      "id": "example-chat-doubao",
+      "names": [
+        "example-chat-doubao"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "example",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "example-chat-doubao"
+      ],
+      "doc": "references/docs/examples/chat-doubao.md",
+      "demos": [
+        "examples/demos/chat/ChatDemoShell.vue",
+        "examples/demos/chat/shared/base.css",
+        "examples/demos/chat/doubao/Demo.vue",
+        "examples/demos/chat/doubao/DouBaoCase.vue",
+        "examples/demos/chat/doubao/DouBaoHeader.vue",
+        "examples/demos/chat/doubao/DouBaoIcon.vue",
+        "examples/demos/chat/doubao/DouBaoSidebar.vue",
+        "examples/demos/chat/doubao/config.ts",
+        "examples/demos/chat/doubao/runtime.ts"
+      ]
+    },
+    {
+      "id": "example-chat-gemini",
+      "names": [
+        "example-chat-gemini"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "example",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "example-chat-gemini"
+      ],
+      "doc": "references/docs/examples/chat-gemini.md",
+      "demos": [
+        "examples/demos/chat/ChatDemoShell.vue",
+        "examples/demos/chat/shared/base.css",
+        "examples/demos/chat/gemini/Demo.vue",
+        "examples/demos/chat/gemini/GeminiCase.vue",
+        "examples/demos/chat/gemini/GeminiComposer.vue",
+        "examples/demos/chat/gemini/GeminiHeader.vue",
+        "examples/demos/chat/gemini/GeminiRail.vue",
+        "examples/demos/chat/gemini/config.ts",
+        "examples/demos/chat/gemini/icons/gemini-mask.svg",
+        "examples/demos/chat/gemini/icons/sidebar-toggle-left.svg",
+        "examples/demos/chat/gemini/icons/sidebar-toggle-menu.svg",
+        "examples/demos/chat/gemini/icons/sidebar-toggle-right.svg",
+        "examples/demos/chat/shared/createChatRuntime.ts",
+        "examples/demos/chat/shared/mockConversationStorage.ts",
+        "examples/demos/chat/shared/modelProviders.ts"
+      ]
+    },
+    {
+      "id": "example-chat-tiny-robot",
+      "names": [
+        "example-chat-tiny-robot"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "example",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "example-chat-tiny-robot"
+      ],
+      "doc": "references/docs/examples/chat-tiny-robot.md",
+      "demos": [
+        "examples/demos/chat/ChatDemoShell.vue",
+        "examples/demos/chat/shared/base.css",
+        "examples/demos/chat/shared/modelProviders.ts",
+        "examples/demos/chat/tiny-robot/ComposerTools.vue",
+        "examples/demos/chat/tiny-robot/chat-runtime.ts",
+        "examples/demos/chat/tiny-robot/chat-ui.ts",
+        "examples/demos/chat/tiny-robot/Demo.vue",
+        "examples/demos/chat/tiny-robot/TinyRobotChat.vue",
+        "examples/demos/chat/tiny-robot/WindowHeader.vue",
+        "examples/demos/chat/tiny-robot/index.css",
+        "examples/demos/chat/tiny-robot/useWindow.ts"
+      ]
+    },
+    {
+      "id": "example-chat-worker-helper",
+      "names": [
+        "example-chat-worker-helper"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "example",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "example-chat-worker-helper"
+      ],
+      "doc": "references/docs/examples/chat-worker-helper.md",
+      "demos": [
+        "examples/demos/chat/ChatDemoShell.vue",
+        "examples/demos/chat/shared/base.css",
+        "examples/demos/chat/shared/createChatRuntime.ts",
+        "examples/demos/chat/shared/mockConversationStorage.ts",
+        "examples/demos/chat/shared/modelProviders.ts",
+        "examples/demos/chat/worker-helper/Demo.vue",
+        "examples/demos/chat/worker-helper/WorkHelperCase.vue"
+      ]
+    },
+    {
+      "id": "guide-cli-integration",
+      "names": [
+        "CLI 接入",
+        "guide-cli-integration"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "guide",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "CLI 接入",
+        "安装方式",
+        "create",
+        "运行时版本",
+        "add",
+        "配置 Model Context MCP 代理",
+        "下一步操作",
+        "Workspace 支持"
+      ],
+      "doc": "references/docs/guide/cli-integration.md",
+      "demos": []
+    },
+    {
+      "id": "guide-quick-start",
+      "names": [
+        "快速开始",
+        "guide-quick-start"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "guide",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "快速开始",
+        "环境要求",
+        "安装",
+        "方式一：使用 TrChat（推荐）",
+        "方式二：使用基础组件自由组合",
+        "基础组件引入与使用",
+        "基础组件按需引入",
+        "步骤 1：引入样式",
+        "步骤 2：按需引入组件",
+        "全局引入",
+        "步骤 1：全局注册组件库",
+        "步骤 2：直接使用组件",
+        "CLI 快速接入",
+        "创建示例项目",
+        "接入现有项目",
+        "注意事项",
+        "下一步"
+      ],
+      "doc": "references/docs/guide/quick-start.md",
+      "demos": []
+    },
+    {
+      "id": "guide-theme-config",
+      "names": [
+        "主题配置",
+        "guide-theme-config"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "guide",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "主题配置",
+        "核心概念",
+        "基础用法",
+        "1. 使用 ThemeProvider",
+        "2. 自定义主题样式",
+        "主题切换",
+        "通过 Props 控制",
+        "通过 useTheme 控制",
+        "高级功能",
+        "嵌套主题",
+        "主题持久化",
+        "自定义目标元素",
+        "最佳实践",
+        "更多示例",
+        "常见问题"
+      ],
+      "doc": "references/docs/guide/theme-config.md",
+      "demos": []
+    },
+    {
+      "id": "guide-update-log",
+      "names": [
+        "更新日志",
+        "guide-update-log"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "guide",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "更新日志",
+        "v0.5.1",
+        "✨ 新特性",
+        "🐛 问题修复",
+        "🔨 优化改进",
+        "📝 文档",
+        "v0.5.0",
+        "v0.4.1",
+        "v0.4.0",
+        "v0.3.3",
+        "v0.3.2",
+        "v0.3.1",
+        "v0.3.0",
+        "v0.2.15",
+        "v0.2.14",
+        "v0.2.13",
+        "v0.2.12",
+        "v0.2.11",
+        "v0.2.10",
+        "v0.2.9",
+        "v0.2.8",
+        "v0.2.7",
+        "v0.2.6",
+        "v0.2.5"
+      ],
+      "doc": "references/docs/guide/update-log.md",
+      "demos": []
+    },
+    {
+      "id": "migration-index",
+      "names": [
+        "迁移指南",
+        "migration-index"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "迁移指南",
+        "v1.0：从 v0.5.1 升级",
+        "v0.4：从 v0.3.x 升级"
+      ],
+      "doc": "references/docs/migration/index.md",
+      "demos": []
+    },
+    {
+      "id": "migration-v0.4-bubble",
+      "names": [
+        "Bubble 迁移指南",
+        "migration-v0.4-bubble"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Bubble 迁移指南",
+        "核心变化概览",
+        "API 对照表（常用项）",
+        "BubbleList",
+        "Bubble",
+        "Slots（命名与参数变化）",
+        "v0.3.x（Bubble）",
+        "0.4.x（Bubble）",
+        "0.4.x（BubbleList）",
+        "迁移步骤",
+        "1) 将 `items` 迁移为 `messages`",
+        "2) `roles` → `roleConfigs`，并迁移 `hidden`",
+        "3) `customContentField` → `contentResolver`",
+        "4) loading 的迁移（`loadingRole` 移除）",
+        "5) “中止 aborted” 的迁移建议",
+        "6) 渲染器迁移：`contentRenderers` Map → `contentRendererMatches`",
+        "v0.3.x 机制",
+        "0.4.x 机制（match rules）",
+        "7) 插槽迁移（slot 名称与参数变化）",
+        "8) CSS 变量迁移（最常用的几个）",
+        "推荐迁移检查清单"
+      ],
+      "doc": "references/docs/migration/v0.4/bubble.md",
+      "demos": []
+    },
+    {
+      "id": "migration-v0.4-sender",
+      "names": [
+        "Sender 迁移指南",
+        "migration-v0.4-sender"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Sender 迁移指南",
+        "快速开始",
+        "第一步：修改导入语句",
+        "第二步：处理破坏性变更",
+        "1. 紧凑模式实现方式",
+        "2. 装饰性内容插槽",
+        "3. 模板数据设置方法",
+        "4. 插槽名称变更",
+        "5. 移除不必要的 key 绑定",
+        "完整迁移方案",
+        "迁移路径对比",
+        "1. 语音输入迁移",
+        "2. 文件上传迁移",
+        "3. 按钮配置迁移",
+        "4. 智能联想迁移",
+        "5. 模板填充迁移",
+        "6. 主题配置迁移",
+        "v0.4 已移除的 API",
+        "Props",
+        "Slots",
+        "Events",
+        "Methods",
+        "SenderCompat 兼容期示例",
+        "SenderCompat API 参考"
+      ],
+      "doc": "references/docs/migration/v0.4/sender.md",
+      "demos": []
+    },
+    {
+      "id": "migration-v0.4-use-conversation",
+      "names": [
+        "useConversation 迁移",
+        "migration-v0.4-use-conversation"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "useConversation 迁移",
+        "概述",
+        "v0.3.x 用法",
+        "0.4.x 用法",
+        "v0.3.x → 0.4.x 对照",
+        "存储策略迁移",
+        "迁移检查清单"
+      ],
+      "doc": "references/docs/migration/v0.4/use-conversation.md",
+      "demos": []
+    },
+    {
+      "id": "migration-v0.4-use-message",
+      "names": [
+        "useMessage 迁移",
+        "migration-v0.4-use-message"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "useMessage 迁移",
+        "概述",
+        "v0.3.x 用法",
+        "0.4.x 用法",
+        "非流式示例",
+        "流式示例",
+        "v0.3.x → 0.4.x 对照",
+        "插件迁移建议",
+        "导出与导入路径迁移",
+        "迁移检查清单"
+      ],
+      "doc": "references/docs/migration/v0.4/use-message.md",
+      "demos": []
+    },
+    {
+      "id": "migration-v1.0-container",
+      "names": [
+        "Container 迁移指南",
+        "migration-v1.0-container"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Container 迁移指南",
+        "先选择布局形态",
+        "从旧容器切换到页面布局"
+      ],
+      "doc": "references/docs/migration/v1.0/container.md",
+      "demos": []
+    },
+    {
+      "id": "migration-v1.0-mcp-server-picker",
+      "names": [
+        "McpServerPicker 迁移指南",
+        "migration-v1.0-mcp-server-picker"
+      ],
+      "package": "TinyRobot ecosystem",
+      "kind": "migration",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "McpServerPicker 迁移指南",
+        "从 McpServerPicker 迁移到 ExtensionManager",
+        "数据与操作映射",
+        "最小迁移示例",
+        "迁移时需要保留的应用职责"
+      ],
+      "doc": "references/docs/migration/v1.0/mcp-server-picker.md",
+      "demos": []
+    },
+    {
+      "id": "chat-chat",
+      "names": [
+        "界面与交互配置",
+        "chat-chat",
+        "Chat 界面配置",
+        "TrChat",
+        "TrChatUI"
+      ],
+      "package": "@opentiny/tiny-robot-chat",
+      "kind": "suite",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "聊天界面",
+        "欢迎区",
+        "输入区",
+        "布局定制"
+      ],
+      "doc": "references/docs/suites/chat.md",
+      "demos": [
+        "examples/demos/chat/bubble-options.vue",
+        "examples/demos/chat/shared/createChatRuntime.ts",
+        "examples/demos/chat/shared/mockConversationStorage.ts",
+        "examples/demos/chat/shared/modelProviders.ts",
+        "examples/demos/chat/business-right-aside.vue",
+        "examples/demos/chat/release-preview.html",
+        "examples/demos/chat/controlled-ui.vue",
+        "examples/demos/chat/extension-tabs.vue",
+        "examples/demos/chat/useExtensionTabsDemo.ts",
+        "examples/demos/chat/floating-layout.vue",
+        "examples/demos/chat/history-groups.vue",
+        "examples/demos/chat/layout-presets.vue",
+        "examples/demos/chat/responsive-layout.vue",
+        "examples/demos/chat/right-aside-panel.vue",
+        "examples/demos/chat/runtime-error.vue",
+        "examples/demos/chat/sender-options.vue",
+        "examples/demos/chat/sender-toolbar.vue",
+        "examples/demos/chat/slots-basic.vue",
+        "examples/demos/chat/welcome-prompts.vue"
+      ],
+      "exports": [
+        "TrChat",
+        "TrChatUI"
+      ]
+    },
+    {
+      "id": "chat-chat-runtime",
+      "names": [
+        "数据与逻辑配置",
+        "chat-chat-runtime",
+        "Chat Runtime",
+        "useChatRuntime",
+        "useChatRuntimeFromConversation"
+      ],
+      "package": "@opentiny/tiny-robot-chat",
+      "kind": "suite",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "模型服务",
+        "发送消息",
+        "会话管理",
+        "MCP",
+        "自定义请求"
+      ],
+      "doc": "references/docs/suites/chat-runtime.md",
+      "demos": [
+        "examples/demos/chat/runtime-actions.vue",
+        "examples/demos/chat/shared/modelProviders.ts",
+        "examples/demos/chat/shared/runtime-demo.css",
+        "examples/demos/chat/runtime-adapter.vue",
+        "examples/demos/chat/runtime-before-send.vue",
+        "examples/demos/chat/runtime-composer.vue",
+        "examples/demos/chat/runtime-conversations.vue",
+        "examples/demos/chat/shared/mockConversationStorage.ts",
+        "examples/demos/chat/runtime-send.vue"
+      ],
+      "exports": [
+        "useChatRuntime",
+        "useChatRuntimeFromConversation",
+        "useChatRuntimeAdapter"
+      ]
+    },
+    {
+      "id": "chat-quick-start",
+      "names": [
+        "快速上手",
+        "chat-quick-start",
+        "Chat 快速上手",
+        "TrChat",
+        "TrChatUI"
+      ],
+      "package": "@opentiny/tiny-robot-chat",
+      "kind": "suite",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "完整聊天应用",
+        "新建聊天页面",
+        "Chat 套件"
+      ],
+      "doc": "references/docs/suites/quick-start.md",
+      "demos": [
+        "examples/demos/chat/basic.vue"
+      ],
+      "exports": [
+        "TrChat",
+        "TrChatUI"
+      ]
+    },
+    {
+      "id": "kit-ai-client",
+      "names": [
+        "AIClient 模型交互工具类",
+        "kit-ai-client"
+      ],
+      "package": "@opentiny/tiny-robot-kit",
+      "kind": "tool",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "AIClient 模型交互工具类",
+        "用法示例",
+        "创建客户端并发送消息",
+        "使用流式响应",
+        "API",
+        "构造函数",
+        "方法"
+      ],
+      "doc": "references/docs/tools/ai-client.md",
+      "demos": [
+        "examples/demos/tools/client/Basic.vue",
+        "examples/demos/tools/client/Stream.vue"
+      ]
+    },
+    {
+      "id": "kit-conversation",
+      "names": [
+        "useConversation 会话数据管理",
+        "kit-conversation",
+        "useConversation",
+        "会话数据管理"
+      ],
+      "package": "@opentiny/tiny-robot-kit",
+      "kind": "tool",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "多会话",
+        "会话历史",
+        "LocalStorage",
+        "IndexedDB",
+        "持久化"
+      ],
+      "doc": "references/docs/tools/conversation.md",
+      "demos": [
+        "examples/demos/tools/conversation/Basic.vue",
+        "examples/demos/tools/conversation/mockResponseProvider.ts",
+        "examples/demos/tools/conversation/mockStorageStrategy.ts",
+        "examples/demos/tools/conversation/IndexedDB.vue",
+        "examples/demos/tools/conversation/LocalStorage.vue",
+        "examples/demos/tools/storage/Custom.vue",
+        "examples/demos/tools/storage/mockResponseProvider.ts"
+      ]
+    },
+    {
+      "id": "kit-message",
+      "names": [
+        "useMessage 消息数据管理",
+        "kit-message",
+        "useMessage",
+        "消息数据管理"
+      ],
+      "package": "@opentiny/tiny-robot-kit",
+      "kind": "tool",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "消息流",
+        "流式响应",
+        "工具调用",
+        "请求状态"
+      ],
+      "doc": "references/docs/tools/message.md",
+      "demos": [
+        "examples/demos/tools/message/Basic.ts",
+        "examples/demos/tools/message/Basic.vue",
+        "examples/demos/tools/message/CustomChunk.ts",
+        "examples/demos/tools/message/CustomChunk.vue",
+        "examples/demos/tools/message/ErrorHandling.ts",
+        "examples/demos/tools/message/ErrorHandling.vue",
+        "examples/demos/tools/message/MockStream.ts",
+        "examples/demos/tools/message/MockStream.vue",
+        "examples/demos/tools/message/NonStreaming.ts",
+        "examples/demos/tools/message/NonStreaming.vue",
+        "examples/demos/tools/message/OnBeforeRequest.ts",
+        "examples/demos/tools/message/OnBeforeRequest.vue",
+        "examples/demos/tools/message/RequestState.ts",
+        "examples/demos/tools/message/RequestState.vue",
+        "examples/demos/tools/message/ToolCall.ts",
+        "examples/demos/tools/message/ToolCall.vue"
+      ]
+    },
+    {
+      "id": "kit-skill",
+      "names": [
+        "Skill 技能接入",
+        "kit-skill",
+        "Skill",
+        "技能接入"
+      ],
+      "package": "@opentiny/tiny-robot-kit",
+      "kind": "tool",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "Skill 解析",
+        "Skill 选择",
+        "instructions",
+        "资源读取"
+      ],
+      "doc": "references/docs/tools/skill.md",
+      "demos": [
+        "examples/demos/tools/skill/SkillInspector.css",
+        "examples/demos/tools/skill/SkillInspector.vue",
+        "examples/demos/tools/skill/exampleSkillFiles.ts",
+        "examples/demos/tools/skill/useSkillInspector.ts",
+        "examples/demos/tools/skill/VueSkillPlugin.css",
+        "examples/demos/tools/skill/VueSkillPlugin.vue"
+      ]
+    },
+    {
+      "id": "kit-utils",
+      "names": [
+        "工具函数 Utils",
+        "kit-utils"
+      ],
+      "package": "@opentiny/tiny-robot-kit",
+      "kind": "tool",
+      "status": "stable",
+      "proactive": true,
+      "scenes": [
+        "工具函数 Utils",
+        "API",
+        "sseStreamToGenerator",
+        "参数",
+        "返回值",
+        "说明",
+        "formatMessages",
+        "extractTextFromResponse",
+        "handleSSEStream"
+      ],
+      "doc": "references/docs/tools/utils.md",
+      "demos": []
+    }
+  ]
+}

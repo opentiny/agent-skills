@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tiny-vue-skill-post-process": "tsx ./tiny-vue-skill-post-process/index.ts",
-    "tiny-robot-skill-post-process": "tsx ./tiny-robot-skill-post-process/index.ts"
+    "tiny-robot-skill-sync": "tsx ./tiny-robot-skill-sync/index.ts",
+    "test:tiny-robot-skill-sync": "tsx --test ./tiny-robot-skill-sync/index.test.ts",
+    "test:tiny-robot-skill-validate": "tsx --test ./tiny-robot-skill-sync/validate.test.ts",
+    "validate:tiny-robot-skill": "tsx ./tiny-robot-skill-sync/validate.ts --skill-root ../skills/tiny-robot-skill --marketplace-path ../.claude-plugin/marketplace.json",
+    "validate:tiny-robot-skill:snapshot": "tsx ./tiny-robot-skill-sync/validate.ts --skill-root ../skills/tiny-robot-skill --marketplace-path ../.claude-plugin/marketplace.json --scope snapshot"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",

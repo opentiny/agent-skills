@@ -27,15 +27,15 @@
     {
       "name": "tiny-robot-skill",
       "source": "./skills/tiny-robot-skill",
-      "description": "TinyRobot component library code generation and implementation guidance",
-      "version": "0.1.0",
+      "description": "TinyRobot 1.0 application development, integration, migration, and review guidance",
+      "version": "1.0.0",
       "author": {
         "name": "OpenTiny"
       },
       "license": "MIT",
       "homepage": "https://opentiny.design/tiny-robot",
       "repository": "https://github.com/opentiny/tiny-robot",
-      "tags": ["robot", "components", "ui"],
+      "tags": ["robot", "chat", "components", "application-development"],
       "keywords": ["tiny-robot", "component-library"]
     },
     {

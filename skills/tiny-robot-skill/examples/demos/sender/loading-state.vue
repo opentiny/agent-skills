@@ -1,0 +1,102 @@
+<script setup lang="ts">
+import { onBeforeUnmount, ref } from 'vue'
+import { TrSender } from '@opentiny/tiny-robot'
+import { Switch as TinySwitch } from '@opentiny/vue'
+
+const content = ref('')
+const loading = ref(false)
+const isDisabled = ref(false)
+const status = ref('等待提交')
+let loadingTimer: ReturnType<typeof setTimeout> | undefined
+
+const clearLoadingTimer = () => {
+  if (loadingTimer) clearTimeout(loadingTimer)
+  loadingTimer = undefined
+}
+
+const handleSubmit = (value: string) => {
+  clearLoadingTimer()
+  loading.value = true
+  status.value = `正在处理：${value}`
+
+  // 模拟 3 秒后完成
+  loadingTimer = setTimeout(() => {
+    loading.value = false
+    content.value = ''
+    status.value = `处理完成：${value}`
+    loadingTimer = undefined
+  }, 3000)
+}
+
+const handleCancel = () => {
+  clearLoadingTimer()
+  loading.value = false
+  status.value = '已取消处理'
+}
+
+onBeforeUnmount(clearLoadingTimer)
+</script>
+
+<template>
+  <div class="demo-container">
+    <div class="controls">
+      <div class="control-item">
+        <label>Loading:</label>
+        <tiny-switch v-model="loading"></tiny-switch>
+      </div>
+      <div class="control-item">
+        <label>Disabled:</label>
+        <tiny-switch v-model="isDisabled"></tiny-switch>
+      </div>
+    </div>
+    <tr-sender
+      v-model="content"
+      placeholder="输入内容后提交，模拟加载状态..."
+      :loading="loading"
+      :disabled="isDisabled"
+      stop-text="停止生成"
+      clearable
+      @submit="handleSubmit"
+      @cancel="handleCancel"
+    />
+    <p class="loading-tip" :class="{ loading }" aria-live="polite">{{ status }}</p>
+  </div>
+</template>
+
+<style scoped>
+.demo-container {
+  padding: 20px;
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loading-tip {
+  margin-top: 10px;
+  color: #1476ff;
+  font-size: 14px;
+}
+
+.loading-tip.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+</style>

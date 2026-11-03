@@ -1,0 +1,230 @@
+---
+outline: [1, 3]
+---
+
+# 快速开始
+
+TinyRobot 是符合 OpenTiny Design 设计体系的 AI 组件库，提供了丰富的 AI 交互组件，助力开发者快速构建企业级 AI 应用。
+
+## 环境要求
+
+在开始使用 TinyRobot 之前，请确保你的开发环境满足以下要求：
+
+- Node.js 版本 >= 20.13.0
+- Vue 版本 >= 3.2.0
+- 包管理器：npm、yarn 或 pnpm
+
+## 安装
+
+::: tip 推荐
+TinyRobot 提供官方 CLI 工具，可快速创建示例项目或向现有 Vue 项目注入聊天能力。
+
+- 查看 [CLI 快速接入](#cli-快速接入)
+- 查看 [CLI 详细文档](./cli-integration)
+
+如果你是首次体验 TinyRobot，推荐优先使用 CLI。
+:::
+
+手动接入时，请根据场景选择以下一种方式，执行对应的安装命令即可，无需依次执行两组命令。
+
+### 方式一：使用 TrChat（推荐）
+
+`TrChat` 是完整的 AI 聊天页面组件，集成会话列表、消息展示与发送和输入区，并通过 Chat Runtime 接入模型服务。适用于独立聊天页面和应用内嵌 AI 助手，可减少页面组装和交互逻辑的开发工作。
+
+已有数据层、仅需完整聊天界面时，可使用同一套件中的 `TrChatUI`，由应用管理会话、消息和请求。
+
+::: code-group
+
+```bash [pnpm]
+pnpm add @opentiny/tiny-robot-chat
+```
+
+```bash [yarn]
+yarn add @opentiny/tiny-robot-chat
+```
+
+```bash [npm]
+npm install @opentiny/tiny-robot-chat
+```
+
+:::
+
+完整接入示例、样式引入和模型服务配置见 [Chat 套件快速上手](/suites/quick-start)。
+
+### 方式二：使用基础组件自由组合
+
+需要将消息展示、输入区或会话列表分别嵌入现有页面时，可使用 `TrBubble`、`TrSender`、`TrHistory` 等基础组件。相比直接接入完整的 TrChat 页面，这种方式可以从单个交互区域开始组合，并接入应用已有的数据和业务流程；组件之间的数据与事件由应用连接。
+
+::: code-group
+
+```bash [pnpm]
+pnpm add @opentiny/tiny-robot @opentiny/tiny-robot-kit @opentiny/tiny-robot-svgs
+```
+
+```bash [yarn]
+yarn add @opentiny/tiny-robot @opentiny/tiny-robot-kit @opentiny/tiny-robot-svgs
+```
+
+```bash [npm]
+npm install @opentiny/tiny-robot @opentiny/tiny-robot-kit @opentiny/tiny-robot-svgs
+```
+
+:::
+
+上述安装命令包含以下包：
+
+- `@opentiny/tiny-robot`：提供消息展示、输入、会话列表等 AI 交互组件。
+- `@opentiny/tiny-robot-kit`：提供模型请求、消息状态和会话管理等数据层能力。
+- `@opentiny/tiny-robot-svgs`：提供 SVG 图标组件，详见 [SVG 图标](/icons/)。
+
+## 基础组件引入与使用
+
+TinyRobot 支持两种引入方式：按需引入和全局引入。推荐使用按需引入方式，可以有效减小打包体积。
+
+### 基础组件按需引入
+
+按需引入可以只打包使用到的组件，有效减小项目体积，提升加载性能。
+
+#### 步骤 1：引入样式
+
+在 `main.js` 或 `main.ts` 中引入组件库样式：
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import '@opentiny/tiny-robot/dist/style.css' // [!code ++]
+
+const app = createApp(App)
+app.mount('#app')
+```
+
+#### 步骤 2：按需引入组件
+
+在 Vue 文件中，按需引入所需的组件：
+
+```vue
+<template>
+  <div class="chat-container">
+    <tr-bubble
+      role="ai"
+      content="TinyRobot 是一个专为 AI 应用设计的 Vue 3 组件库，提供了丰富的对话、输入、展示等交互组件。"
+    />
+    <tr-bubble
+      role="user"
+      content="听起来很不错，我想了解更多！"
+    />
+  </div>
+</template>
+
+<script setup>
+import { TrBubble } from '@opentiny/tiny-robot'
+</script>
+
+<style scoped>
+.chat-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style>
+```
+
+### 全局引入
+
+全局引入适合快速原型开发或小型项目，可以在任何组件中直接使用所有组件，无需单独引入。
+
+#### 步骤 1：全局注册组件库
+
+在 `main.js` 或 `main.ts` 中全局引入并注册组件库：
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import TinyRobot from '@opentiny/tiny-robot' // 全量引入组件库 [!code ++]
+import '@opentiny/tiny-robot/dist/style.css' // 引入样式 [!code ++]
+
+const app = createApp(App)
+app.use(TinyRobot) // 注册所有组件 [!code ++]
+
+app.mount('#app')
+```
+
+#### 步骤 2：直接使用组件
+
+全局注册后，可以在任何 Vue 组件中直接使用，无需在 `<script>` 中引入：
+
+```vue
+<template>
+  <div class="chat-app">
+    <tr-bubble
+      role="ai"
+      content="全局引入后，所有组件都可以直接使用，无需单独引入。"
+    />  
+  </div>
+</template>
+
+<!-- 无需在 script 中引入组件 -->
+```
+
+## CLI 快速接入
+
+除了手动安装和配置组件，TinyRobot 还提供了官方 CLI 工具，可以帮助你快速创建 AI 应用或向现有 Vue 项目注入聊天能力。
+
+### 创建示例项目
+
+```bash
+npx @opentiny/tiny-robot-cli create my-app --template basic
+```
+
+自动生成：
+
+- Vue 工程结构
+- TinyRobot 聊天示例
+- 环境变量模板
+- 开箱即用的演示页面
+
+### 接入现有项目
+
+```bash
+npx @opentiny/tiny-robot-cli add chat
+```
+
+自动完成：
+
+- 安装 TinyRobot 依赖
+- 导入样式文件
+- 创建聊天组件
+- 环境变量模板
+
+👉 更多功能请查看 [CLI 接入](./cli-integration)
+
+## 注意事项
+
+1. **样式引入**：手动接入时需引入 `@opentiny/tiny-robot/dist/style.css`；使用 `TrChat` 或 `TrChatUI` 时还需引入 `@opentiny/tiny-robot-chat/dist/style.css`，具体步骤见 [Chat 套件快速上手](/suites/quick-start)。
+
+2. **按需引入优势**：
+   - 减小打包体积，只打包使用到的组件
+   - 提升应用加载速度
+   - 更好的 Tree Shaking 支持
+
+3. **全局引入注意**：
+   - 会打包所有组件，增加打包体积
+   - 适合快速原型开发或组件使用较多的场景
+
+4. **TypeScript 支持**：TinyRobot 完全支持 TypeScript，提供了完整的类型定义
+
+5. **组件命名**：所有组件都以 `Tr` 前缀开头（TinyRobot 的缩写），例如 `TrBubble`、`TrSender` 等
+
+## 下一步
+
+现在你已经成功安装并引入了 TinyRobot，可以：
+
+- 查看[**Chat 套件快速上手**](/suites/quick-start)了解 `TrChat` 的接入方式
+- 查看[**界面与交互配置**](/suites/chat)了解界面定制和 `TrChatUI` 的用法
+- 查看[**主题配置**](/guide/theme-config)了解如何自定义主题样式
+- 浏览[**更新日志**](/guide/update-log)查看最新版本变更
+- 探索[**组件文档**](/components/container)了解所有可用组件
+- 查看[**SVG 图标**](/icons/)了解独立图标包的用法与图标集合
+- 查看[**综合示例**](/examples/assistant)获取完整的应用演示
+
+如果遇到问题，欢迎在 [GitHub Issues](https://github.com/opentiny/tiny-robot/issues) 中反馈。

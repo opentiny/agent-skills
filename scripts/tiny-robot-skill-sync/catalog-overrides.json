@@ -1,0 +1,173 @@
+{
+  "excludedDocs": [
+    "guide/plugin-badge.md",
+    "migration/bubble-migration.md",
+    "migration/use-conversation-migration.md",
+    "migration/use-message-migration.md"
+  ],
+  "navigation": [
+    "guide/quick-start.md",
+    "guide/theme-config.md",
+    "guide/update-log.md",
+    "guide/cli-integration.md",
+    "suites/quick-start.md",
+    "suites/chat.md",
+    "suites/chat-runtime.md",
+    "components/layout.md",
+    "components/bubble.md",
+    "components/sender.md",
+    "components/model-selector.md",
+    "components/prompts.md",
+    "components/welcome.md",
+    "components/feedback.md",
+    "components/history.md",
+    "components/anchor.md",
+    "components/dropdown-menu.md",
+    "components/suggestion-popover.md",
+    "components/suggestion-pills.md",
+    "components/drag-overlay.md",
+    "components/attachments.md",
+    "components/extension-manager.md",
+    "components/mcp-extension.md",
+    "components/skill-extension.md",
+    "components/theme.md",
+    "components/container.md",
+    "components/mcp-server-picker.md",
+    "tools/message.md",
+    "tools/conversation.md",
+    "tools/skill.md",
+    "tools/ai-client.md",
+    "tools/utils.md",
+    "best-practices/extension-manager-integration.md",
+    "examples/chat-tiny-robot.md",
+    "examples/chat-doubao.md",
+    "examples/chat-worker-helper.md",
+    "examples/chat-deepseek.md",
+    "examples/chat-gemini.md",
+    "examples/assistant.md",
+    "migration/index.md",
+    "migration/v1.0/container.md",
+    "migration/v1.0/mcp-server-picker.md",
+    "migration/v0.4/bubble.md",
+    "migration/v0.4/sender.md",
+    "migration/v0.4/use-message.md",
+    "migration/v0.4/use-conversation.md"
+  ],
+  "entries": {
+    "layout": {
+      "aliases": ["Layout", "TrLayout", "布局"],
+      "scenes": ["聊天页面布局", "侧栏", "浮层布局", "可调整侧栏"],
+      "exports": ["TrLayout", "TrLayoutProxyScrollbar", "TrLayoutAsideToggle"]
+    },
+    "container": {
+      "aliases": ["Container", "TrContainer", "容器"],
+      "scenes": ["旧版聊天容器", "从 0.5.1 迁移"],
+      "status": "deprecated",
+      "replacedBy": ["layout"],
+      "exports": ["TrContainer"]
+    },
+    "mcp-server-picker": {
+      "aliases": ["McpServerPicker", "TrMcpServerPicker", "插件选择器"],
+      "scenes": ["旧版 MCP 插件选择", "从 0.5.1 迁移"],
+      "status": "deprecated",
+      "replacedBy": ["extension-manager"],
+      "exports": ["TrMcpServerPicker"]
+    },
+    "extension-manager": {
+      "aliases": ["ExtensionManager", "TrExtensionManager", "扩展管理"],
+      "scenes": ["MCP 扩展", "Skill 扩展", "安装状态", "扩展浏览", "扩展启停"],
+      "exports": ["TrExtensionManager", "TrExtensionCard", "TrExtensionCardGrid"]
+    },
+    "bubble": {
+      "aliases": ["Bubble", "BubbleList", "BubbleProvider", "TrBubble", "消息气泡"],
+      "scenes": ["消息列表", "流式消息", "Markdown", "工具调用", "自定义渲染器"],
+      "exports": ["TrBubble", "TrBubbleList", "TrBubbleProvider"]
+    },
+    "sender": {
+      "aliases": ["Sender", "TrSender", "消息输入框", "输入区"],
+      "scenes": ["消息输入", "附件", "建议词", "语音", "自定义操作按钮"],
+      "exports": [
+        "TrSender",
+        "TrActionButton",
+        "TrSubmitButton",
+        "TrClearButton",
+        "TrUploadButton",
+        "TrVoiceButton",
+        "TrWordCounter",
+        "TrDefaultActionButtons"
+      ]
+    },
+    "model-selector": {
+      "aliases": ["ModelSelector", "TrModelSelector", "模型选择器"],
+      "scenes": ["模型切换", "模型分组", "推理强度"]
+    },
+    "anchor": {
+      "aliases": ["Anchor", "TrAnchor", "锚点"],
+      "scenes": ["长消息导航", "消息搜索", "内容定位"]
+    },
+    "mcp-extension": {
+      "aliases": ["McpExtensionForm", "McpExtensionDetail", "MCP 扩展"],
+      "scenes": ["MCP 导入", "MCP 详情", "工具启停", "MCP 存储"],
+      "exports": ["TrMcpExtensionForm", "TrMcpExtensionDetail", "createMcpExtensionStorage", "createMemoryMcpExtensionStorage"]
+    },
+    "skill-extension": {
+      "aliases": ["SkillImportForm", "SkillExtensionDetail", "Skill 扩展"],
+      "scenes": ["Skill 导入", "Skill 详情", "Skill 资源"],
+      "exports": ["TrSkillImportForm", "TrSkillExtensionDetail"]
+    },
+    "theme": {
+      "aliases": ["ThemeProvider", "TrThemeProvider", "主题"],
+      "scenes": ["主题", "深色模式", "颜色模式", "主题存储"],
+      "exports": ["TrThemeProvider", "useTheme"]
+    },
+    "prompts": {
+      "aliases": ["Prompt", "Prompts", "TrPrompt", "TrPrompts", "提示集"],
+      "scenes": ["推荐问题", "提示词", "快捷入口"],
+      "exports": ["TrPrompt", "TrPrompts"]
+    },
+    "suggestion-pills": {
+      "aliases": ["SuggestionPills", "SuggestionPillButton", "建议按钮组"],
+      "scenes": ["输入建议", "快捷问题", "按钮建议"],
+      "exports": ["TrSuggestionPills", "TrSuggestionPillButton"]
+    },
+    "sender-compat": {
+      "aliases": ["SenderCompat", "TrSenderCompat", "Sender 兼容入口"],
+      "scenes": ["从 0.3.x 迁移", "Sender 兼容期"],
+      "status": "deprecated",
+      "replacedBy": ["sender"],
+      "exports": ["TrSenderCompat"]
+    },
+    "mcp-add-form": {
+      "aliases": ["McpAddForm", "TrMcpAddForm", "MCP 添加表单"],
+      "scenes": ["旧版 MCP 添加表单", "MCP 配置"],
+      "exports": ["TrMcpAddForm"]
+    },
+    "chat-quick-start": {
+      "aliases": ["Chat 快速上手", "TrChat", "TrChatUI"],
+      "scenes": ["完整聊天应用", "新建聊天页面", "Chat 套件"],
+      "exports": ["TrChat", "TrChatUI"]
+    },
+    "chat-chat": {
+      "aliases": ["Chat 界面配置", "TrChat", "TrChatUI"],
+      "scenes": ["聊天界面", "欢迎区", "输入区", "布局定制"],
+      "exports": ["TrChat", "TrChatUI"]
+    },
+    "chat-chat-runtime": {
+      "aliases": ["Chat Runtime", "useChatRuntime", "useChatRuntimeFromConversation"],
+      "scenes": ["模型服务", "发送消息", "会话管理", "MCP", "自定义请求"],
+      "exports": ["useChatRuntime", "useChatRuntimeFromConversation", "useChatRuntimeAdapter"]
+    },
+    "kit-message": {
+      "aliases": ["useMessage", "消息数据管理"],
+      "scenes": ["消息流", "流式响应", "工具调用", "请求状态"]
+    },
+    "kit-conversation": {
+      "aliases": ["useConversation", "会话数据管理"],
+      "scenes": ["多会话", "会话历史", "LocalStorage", "IndexedDB", "持久化"]
+    },
+    "kit-skill": {
+      "aliases": ["Skill", "技能接入"],
+      "scenes": ["Skill 解析", "Skill 选择", "instructions", "资源读取"]
+    }
+  }
+}
